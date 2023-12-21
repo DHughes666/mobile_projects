@@ -6,7 +6,8 @@ module.exports = {
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:react/recommended",   "plugin:react/jsx-runtime"
+		"plugin:react/recommended",   "plugin:react/jsx-runtime",
+		["prettier"]
     
 	],
 	"overrides": [
@@ -29,7 +30,8 @@ module.exports = {
 	},
 	"plugins": [
 		"@typescript-eslint",
-		"react"
+		"react",
+		"prettier"
 	],
 	"rules": {
 		"indent": [
@@ -47,6 +49,7 @@ module.exports = {
 		"semi": [
 			"error",
 			"always"
-		]
+		],
+		"prettier/prettier": ["error"]
 	}
 };
