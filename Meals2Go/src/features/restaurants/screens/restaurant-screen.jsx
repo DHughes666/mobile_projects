@@ -1,14 +1,16 @@
 import { Searchbar } from "react-native-paper";
 import { StyleSheet, Text, View, SafeAreaView, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import styled from "styled-components";
 import { RestaurantInfo } from "../components/restaurant-infoCard-comp";
+
 
 const RestaurantScreen = () => {
 	return (
 		<>
 			<SafeAreaView style={styles.container}>
 				<View style={styles.searchDef}>
-					<Searchbar placeholder="Search"/>
+					<Searchbar placeholder="Google me"/>
 				</View>
 				<View>
 					<RestaurantInfo />
