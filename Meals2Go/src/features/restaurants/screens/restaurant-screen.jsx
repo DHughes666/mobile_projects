@@ -7,20 +7,20 @@ import { RestaurantInfo } from "../components/restaurant-infoCard-comp";
 const SafeArea = styled(SafeAreaView)`
 	flex: 1;
 	margin-top: ${StatusBar.currentHeight}px;
-	background-color: #fff;
+	background-color: ${({theme}) => theme.colors.bg.primary};
 `
 
 const SearchContainer = styled.View`
-	paddingTop: 40px;
-	paddingBottom: 16px;
-	paddingLeft: 8px;
-	paddingRight: 8px;
+	paddingTop: ${({theme}) => theme.space[6]};
+	paddingBottom: ${({theme}) => theme.space[3]};
+	paddingLeft: ${({theme}) => theme.space[2]};
+	paddingRight: ${({theme}) => theme.space[2]};
 `
 
 const RestaurantContainer = styled.View`
 	flex: 1; 
-	padding: 16px;
-	background-color: blue;
+	padding: ${({theme}) => theme.space[3]};
+	background-color: ${({theme}) => theme.colors.bg.primary};
 `
 
 const RestaurantScreen = () => {
