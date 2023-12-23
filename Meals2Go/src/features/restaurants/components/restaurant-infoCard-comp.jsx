@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components/native";
-import { StyleSheet } from "react-native";
-import { Button, Card, Text } from 'react-native-paper';
+import { Text } from "react-native";
+import { Card} from 'react-native-paper';
+import { SvgXml } from "react-native-svg";
 
 const RestaurantCard = styled(Card)`
     background-color: ${({theme}) => theme.colors.bg.primary};
