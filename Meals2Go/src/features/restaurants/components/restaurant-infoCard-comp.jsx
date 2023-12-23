@@ -8,15 +8,15 @@ const RestaurantCard = styled(Card)`
 `
 
 const RestaurantCardCover = styled(Card.Cover)`
-    padding: 20px;
+    padding: ${({theme}) => theme.space[4]};
     background-color: white;
 `
 
 const Title = styled.Text`
-    padding-top: 14px;
-    paddingLeft: 18px;
-    font-size: 30px;
-    color: red;
+    padding-top: ${({theme}) => theme.space[3]};
+    paddingLeft: ${({theme}) => theme.space[4]};
+    font-size: ${({theme}) => theme.fontSizes.h4};
+    color: ${({theme}) => theme.colors.ui.primary};
 `
 
 export const RestaurantInfo = ({restaurant={}}) => {
