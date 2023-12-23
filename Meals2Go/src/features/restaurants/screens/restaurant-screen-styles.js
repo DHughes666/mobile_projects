@@ -1,4 +1,4 @@
-import { View, SafeAreaView, StatusBar} from "react-native";
+import { View, SafeAreaView, StatusBar, FlatList} from "react-native";
 import styled from "styled-components";
 
 export const SafeArea = styled(SafeAreaView)`
@@ -19,3 +19,6 @@ export const RestaurantContainer = styled(View)`
 	padding: ${({theme}) => theme.space[3]};
 	background-color: ${({theme}) => theme.colors.bg.primary};
 `
+export const RestaurantList = styled(FlatList).attrs({
+	contentContainerStyle: {padding: 16,}
+})``;

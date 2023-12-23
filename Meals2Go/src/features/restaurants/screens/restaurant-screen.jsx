@@ -1,6 +1,7 @@
 import { Searchbar } from "react-native-paper";
 import { FlatList } from "react-native";
-import { SafeArea, SearchContainer, RestaurantContainer } from "./restaurant-screen-styles";
+import { SafeArea, SearchContainer, 
+	RestaurantList } from "./restaurant-screen-styles";
 import { RestaurantInfo } from "../components/restaurant-infoCard-comp";
 
 const RestaurantScreen = () => {
@@ -10,11 +11,12 @@ const RestaurantScreen = () => {
 				<SearchContainer>
 					<Searchbar placeholder="Google me"/>
 				</SearchContainer>
-				<FlatList 
-					data={[{name: 1}, {name: 2}]}
+				<RestaurantList
+					data={[{name: 1}, {name: 2}, {name: 3}, {name: 4}, 
+						{name: 5}, {name: 6}, {name: 7}, {name: 8}]}
 					renderItem={() => <RestaurantInfo />}
 					keyExtractor={(item) => item.name}
-					contentContainerStyle={{padding: 16}}
+					
 				/>
 			</SafeArea>
 		</>

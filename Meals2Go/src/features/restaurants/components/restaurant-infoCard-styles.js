@@ -1,14 +1,21 @@
 import { Card, Image} from 'react-native-paper';
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import styled from "styled-components/native";
 
 export const RestaurantCard = styled(Card)`
     background-color: ${({theme}) => theme.colors.bg.primary};
+    margin-bottom: ${({theme}) => theme.space[3]};
 `
 
 export const RestaurantCardCover = styled(Card.Cover)`
     padding: ${({theme}) => theme.space[4]};
     background-color: ${({theme}) => theme.colors.bg.secondary};
+`
+
+export const RestaurantContainer = styled(View)`
+	flex: 1; 
+	padding: ${({theme}) => theme.space[3]};
+	background-color: ${({theme}) => theme.colors.bg.primary};
 `
 export const CardInfo = styled.View`
     padding: ${({theme}) => theme.space[3]};
