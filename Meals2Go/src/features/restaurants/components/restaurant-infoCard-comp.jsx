@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
 import { StyleSheet, View } from "react-native";
-import { Card, Text, Image} from 'react-native-paper';
+import { Card, Image} from 'react-native-paper';
 import { SvgXml } from "react-native-svg";
 import { Spacer } from "../../../components/spacer/spacer-comp";
+import { Text } from "../../../components/typography/text-comp";
 
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
@@ -38,11 +39,6 @@ const Address = styled.Text`
     font-size: ${({theme}) => theme.fontSizes.caption};
     font-weight: ${({theme}) => theme.fontWeights.bold};
 `
-const Title = styled.Text`
-    font-family: ${({theme}) => theme.fonts.heading};
-    font-size: ${({theme}) => theme.fontSizes.title};
-    color: ${({theme}) => theme.colors.ui.primary};
-`
 
 export const RestaurantInfo = ({restaurant={}}) => {
     const {
@@ -63,7 +59,7 @@ export const RestaurantInfo = ({restaurant={}}) => {
         <RestaurantCard elevation={5}>
             <RestaurantCardCover key={name} source={{uri: photos[0]}}/>
             <CardInfo>
-                <Title>{name}</Title>
+                <Text variant="label">{name}</Text>
                 <Section>
                     <Rating>
                         {ratingArray.map((rate, index) => (
@@ -72,14 +68,16 @@ export const RestaurantInfo = ({restaurant={}}) => {
                     </Rating>
                     <SectionEnd>
                         {isClosedTemporarily && 
-                            <Text variant="labelMedium" style={{color: 'red'}}>
+                            <Text variant="error">
                                 CLOSED TEMPORARILY
                             </Text>
                         }
-                        <Spacer variant="left.large" />
+                        <Spacer position="left" size="large">
                         {isOpenNow && <SvgXml xml={open} width={20} height={20}/>}
-                        <Spacer variant="left.large" />
+                        </Spacer>
+                        <Spacer position="left" size="large">
                         {/* <Image style={{width: 15, height: 15}} source={{uri: icon}}/> */}
+                        </Spacer>
                     </SectionEnd>
                 </Section>
                 <Address>{address}</Address>
