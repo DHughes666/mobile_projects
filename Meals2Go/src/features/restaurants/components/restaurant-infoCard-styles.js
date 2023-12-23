@@ -1,4 +1,5 @@
 import { Card, Image} from 'react-native-paper';
+import { StyleSheet, View } from "react-native";
 import styled from "styled-components/native";
 
 export const RestaurantCard = styled(Card)`
