@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { RestaurantContext } from "../../../services/restaurant/restaurant_context";
 import { Searchbar } from "react-native-paper";
 import { FlatList } from "react-native";
 import { SafeArea, SearchContainer, 
@@ -5,6 +7,8 @@ import { SafeArea, SearchContainer,
 import { RestaurantInfo } from "../components/restaurant-infoCard-comp";
 
 const RestaurantScreen = () => {
+	const {isLoading, restaurants, error} = useContext(RestaurantContext)
+	console.log(restaurants);
 	return (
 		<>
 			<SafeArea>
@@ -12,8 +16,7 @@ const RestaurantScreen = () => {
 					<Searchbar placeholder="Google me"/>
 				</SearchContainer>
 				<RestaurantList
-					data={[{name: 1}, {name: 2}, {name: 3}, {name: 4}, 
-						{name: 5}, {name: 6}, {name: 7}, {name: 8}]}
+					data={restaurants}
 					renderItem={() => <RestaurantInfo />}
 					keyExtractor={(item) => item.name}
 					

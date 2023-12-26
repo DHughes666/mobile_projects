@@ -16,6 +16,7 @@
     "@react-native-community/eslint-config": "^3.2.0",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
+    "camelize": "^1.0.1",
     "expo": "~49.0.15",
     "expo-font": "~11.4.0",
     "expo-status-bar": "~1.6.0",
