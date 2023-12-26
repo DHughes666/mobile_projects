@@ -4,4 +4,4 @@ export const lineHeights = {
   };
   
   export const space = ["0px", "4px", "8px", 
-      "16px", "18px", "32px", "40px", "64px"];
+      "16px", "18px", "32px", "40px", "64px", "-25px"];

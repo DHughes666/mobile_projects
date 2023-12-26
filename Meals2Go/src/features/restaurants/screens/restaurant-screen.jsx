@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { View } from "react-native";
 import { RestaurantContext } from "../../../services/restaurant/restaurant_context";
-import { Searchbar, ActivityIndicator, MD2Colors } from "react-native-paper";
-import { SafeArea, SearchContainer, 
+import { Searchbar, MD2Colors } from "react-native-paper";
+import { SafeArea, SearchContainer, Loading, LoadingAct,
 	RestaurantList } from "./restaurant-screen-styles";
 import { RestaurantInfo } from "../components/restaurant-infoCard-comp";
 
@@ -13,16 +13,15 @@ const RestaurantScreen = () => {
 		<>
 			<SafeArea>
 				{isLoading && (
-					<View style={{
+					<Loading style={{
 						position: "absolute", top: "50%", left: "50%",
 					}}>
-						<ActivityIndicator 
+						<LoadingAct 
 							size={50}
-							style={{marginLeft: -25}}
 							animating={true}
 							color={MD2Colors.blue200}
 						/>
-					</View>
+					</Loading>
 				)}
 				<SearchContainer>
 					<Searchbar placeholder="Google me"/>

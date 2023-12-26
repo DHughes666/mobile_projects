@@ -1,4 +1,5 @@
 import { View, SafeAreaView, StatusBar, FlatList} from "react-native";
+import { ActivityIndicator } from "react-native-paper";
 import styled from "styled-components";
 
 export const SafeArea = styled(SafeAreaView)`
@@ -22,3 +23,13 @@ export const RestaurantContainer = styled(View)`
 export const RestaurantList = styled(FlatList).attrs({
 	contentContainerStyle: {padding: 16,}
 })``;
+
+export const Loading = styled.View`
+	position: absolute; 
+	top: 50%; 
+	left: 50%;
+`
+
+export const LoadingAct = styled(ActivityIndicator)`
+	margin-left: ${({theme}) => theme.space[8]};
+`
