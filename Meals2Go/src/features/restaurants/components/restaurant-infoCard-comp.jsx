@@ -10,17 +10,15 @@ import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
 
-export const RestaurantInfo = ({restaurant={}}) => {
+export const RestaurantInfo = ({restaurant}) => {
     const {
-        name = "Some Restaurant", 
+        name,
         icon, 
-        photos = [
-            "https://img.freepik.com/free-photo/top-view-meals-tasty-yummy-different-pastries-dishes-brown-surface_140725-14554.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1703116800&semt=ais"
-        ], 
-        address = "200 randy area", 
-        isOpenNow = true,
-        rating = 4, 
-        isClosedTemporarily = true,
+        photos,
+        address = restaurant['vicinity'],
+        isOpenNow = restaurant['openingHours'],
+        rating,
+        isClosedTemporarily,
     } = restaurant;
 
     const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -46,7 +44,7 @@ export const RestaurantInfo = ({restaurant={}}) => {
                         {isOpenNow && <SvgXml xml={open} width={20} height={20}/>}
                         </Spacer>
                         <Spacer position="left" size="large">
-                        {/* <Icon source={{uri: icon}} /> */}
+                        <Icon source={{uri: icon}} />
                         </Spacer>
                     </SectionEnd>
                 </Section>

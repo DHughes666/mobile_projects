@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { RestaurantContext } from "../../../services/restaurant/restaurant_context";
 import { Searchbar } from "react-native-paper";
-import { FlatList } from "react-native";
 import { SafeArea, SearchContainer, 
 	RestaurantList } from "./restaurant-screen-styles";
 import { RestaurantInfo } from "../components/restaurant-infoCard-comp";
@@ -17,7 +16,10 @@ const RestaurantScreen = () => {
 				</SearchContainer>
 				<RestaurantList
 					data={restaurants}
-					renderItem={() => <RestaurantInfo />}
+					renderItem={({item}) => {
+						console.log(item);
+						return (<RestaurantInfo restaurant={item}/>)
+					}}
 					keyExtractor={(item) => item.name}
 					
 				/>

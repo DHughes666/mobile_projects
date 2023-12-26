@@ -39,7 +39,7 @@
         "user_ratings_total": 832,
         "vicinity": "Quinten Matsijslei 25, Antwerpen"
       },
-      {
+      { "business_status": "OPERATIONAL",
         "geometry": {
           "location": {
             "lat": 51.21366200000001,
@@ -673,6 +673,7 @@
           "compound_code": "",
           "global_code": ""
         },
+        "price_level": 3,
         "rating": 4.9,
         "reference": "",
         "scope": "",

@@ -27,7 +27,7 @@ export const RestaurantContextProvider = ({children}) => {
 
     useEffect(() => {
         retrieveRestaurants();
-    }, [])
+    }, []);
 
     const values = {
         restaurants,
