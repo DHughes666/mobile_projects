@@ -41,7 +41,7 @@
           "global_code": ""
         },
         "price_level": 3,
-        "rating": 4.4,
+        "rating": 2.4,
         "reference": "",
         "scope": "",
         "types": [
@@ -55,7 +55,7 @@
         "vicinity": "200 North Columbus Drive, Chicago"
       },
       {
-        "business_status": "OPERATIONAL",
+        "business_status": "CLOSED_TEMPORARY",
         "geometry": {
           "location": {
             "lat": 41.888868,
@@ -369,7 +369,7 @@
         "vicinity": "223 West Jackson Boulevard, Chicago"
       },
       {
-        "business_status": "OPERATIONAL",
+        "business_status": "CLOSED_TEMPORARY",
         "geometry": {
           "location": {
             "lat": 41.8813268,
@@ -407,7 +407,7 @@
           "global_code": ""
         },
         "price_level": 3,
-        "rating": 4.5,
+        "rating": 5,
         "reference": "",
         "scope": "",
         "types": [

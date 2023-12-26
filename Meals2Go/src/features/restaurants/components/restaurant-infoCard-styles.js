@@ -1,5 +1,4 @@
-import { Card, Image} from 'react-native-paper';
-import { StyleSheet, View, FlatList } from "react-native";
+import { Card} from 'react-native-paper';
 import styled from "styled-components/native";
 
 export const RestaurantCard = styled(Card)`
@@ -12,7 +11,7 @@ export const RestaurantCardCover = styled(Card.Cover)`
     background-color: ${({theme}) => theme.colors.bg.secondary};
 `
 
-export const RestaurantContainer = styled(View)`
+export const RestaurantContainer = styled.View`
 	flex: 1; 
 	padding: ${({theme}) => theme.space[3]};
 	background-color: ${({theme}) => theme.colors.bg.primary};
@@ -41,6 +40,6 @@ export const Address = styled.Text`
 `
 
 export const Icon = styled.Image`
-    width: '15px';
-    height: '15px';
+    width: 15px;
+    height: 15px;
 `
