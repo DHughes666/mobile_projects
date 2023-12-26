@@ -11,6 +11,7 @@ import {useFonts as useLato,
 
 import {theme} from "./src/infrastructure/theme/index"
 import { RestaurantContextProvider } from "./src/services/restaurant/restaurant_context";
+import { LocationContextProvider } from "./src/services/location/location_context";
 import RestaurantScreen from "./src/features/restaurants/screens/restaurant-screen";
 import { SafeArea } from "./src/features/restaurants/screens/restaurant-screen-styles";
 
@@ -69,15 +70,17 @@ export default function App() {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<RestaurantContextProvider>
-					<NavigationContainer>
-						<Tab.Navigator screenOptions={createScreenOptions}>
-							<Tab.Screen name="Restaurants" component={RestaurantScreen} />
-							<Tab.Screen name="Map" component={Map} />
-							<Tab.Screen name="Settings" component={Settings} />
-						</Tab.Navigator>
-					</NavigationContainer>
-				</RestaurantContextProvider>
+				<LocationContextProvider>
+					<RestaurantContextProvider>
+						<NavigationContainer>
+							<Tab.Navigator screenOptions={createScreenOptions}>
+								<Tab.Screen name="Restaurants" component={RestaurantScreen} />
+								<Tab.Screen name="Map" component={Map} />
+								<Tab.Screen name="Settings" component={Settings} />
+							</Tab.Navigator>
+						</NavigationContainer>
+					</RestaurantContextProvider>
+				</LocationContextProvider>
 			</ThemeProvider>
 			<StatusBar style="auto" />
 		</>
