@@ -8,13 +8,6 @@ export const SafeArea = styled(SafeAreaView)`
 	background-color: ${({theme}) => theme.colors.bg.primary};
 `
 
-export const SearchContainer = styled(View)`
-	paddingTop: ${({theme}) => theme.space[6]};
-	paddingBottom: ${({theme}) => theme.space[3]};
-	paddingLeft: ${({theme}) => theme.space[2]};
-	paddingRight: ${({theme}) => theme.space[2]};
-`
-
 export const RestaurantContainer = styled(View)`
 	flex: 1; 
 	padding: ${({theme}) => theme.space[3]};

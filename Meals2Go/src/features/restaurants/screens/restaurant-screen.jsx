@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { View } from "react-native";
 import { RestaurantContext } from "../../../services/restaurant/restaurant_context";
-import { Searchbar, MD2Colors } from "react-native-paper";
+import { MD2Colors } from "react-native-paper";
 import { SafeArea, SearchContainer, Loading, LoadingAct,
 	RestaurantList } from "./restaurant-screen-styles";
 import { RestaurantInfo } from "../components/restaurant-infoCard-comp";
+import Search from "../components/search_comp";
 
 const RestaurantScreen = () => {
 	const {isLoading, restaurants, error} = useContext(RestaurantContext)
@@ -23,13 +24,10 @@ const RestaurantScreen = () => {
 						/>
 					</Loading>
 				)}
-				<SearchContainer>
-					<Searchbar placeholder="Google me"/>
-				</SearchContainer>
+				<Search />
 				<RestaurantList
 					data={restaurants}
 					renderItem={({item}) => {
-						console.log(item);
 						return (<RestaurantInfo restaurant={item}/>)
 					}}
 					keyExtractor={(item) => item.name}
