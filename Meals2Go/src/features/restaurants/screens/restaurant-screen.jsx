@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { RestaurantContext } from "../../../services/restaurant/restaurant_context";
 import { MD2Colors } from "react-native-paper";
 import { SafeArea, Loading, LoadingAct,
@@ -29,11 +29,14 @@ const RestaurantScreen = ({ navigation }) => {
 					data={restaurants}
 					renderItem={({item}) => {
 						return (
-							<Pressable onPress={
-								() => navigation.navigate("RestaurantDetail")
+							<TouchableOpacity 
+								onPress={() => 
+									navigation.navigate("RestaurantDetail", {
+										restaurant: item,
+									})
 								}>
 								<RestaurantInfo restaurant={item}/>
-							</Pressable>
+							</TouchableOpacity>
 						)
 					}}
 					keyExtractor={(item) => item.name}
