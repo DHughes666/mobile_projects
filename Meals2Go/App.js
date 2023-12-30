@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
-import Navigation from "./src/infrastructure/navigation/navigation_comp";
+import Navigator from "./src/infrastructure/navigation/app_navigator";
 
 
 import {useFonts as useOswald, 
@@ -33,7 +33,7 @@ export default function App() {
 			<ThemeProvider theme={theme}>
 				<LocationContextProvider>
 					<RestaurantContextProvider>
-						<Navigation />
+						<Navigator />
 					</RestaurantContextProvider>
 				</LocationContextProvider>
 			</ThemeProvider>

@@ -5,7 +5,7 @@ import { SafeArea } from "../../features/restaurants/screens/restaurant-screen-s
 import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-const Navigation = () => {
+const Navigator = () => {
 
     const Tab = createBottomTabNavigator();
 
@@ -56,4 +56,4 @@ const Navigation = () => {
     )
 };
 
-export default Navigation;
+export default Navigator;
