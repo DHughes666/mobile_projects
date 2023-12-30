@@ -15,3 +15,5 @@ const RestaurantsNavigator = () => {
         </RestaurantStack.Navigator>
     )
 }
+
+export default RestaurantsNavigator;
