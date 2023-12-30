@@ -42,6 +42,7 @@ const Navigator = () => {
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
+        headerShown: false,
         
     })
 

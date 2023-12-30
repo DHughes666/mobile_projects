@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { View } from "react-native";
+import { Pressable } from "react-native";
 import { RestaurantContext } from "../../../services/restaurant/restaurant_context";
 import { MD2Colors } from "react-native-paper";
-import { SafeArea, SearchContainer, Loading, LoadingAct,
+import { SafeArea, Loading, LoadingAct,
 	RestaurantList } from "./restaurant-screen-styles";
 import { RestaurantInfo } from "../components/restaurant-infoCard-comp";
 import Search from "../components/search_comp";
 
-const RestaurantScreen = () => {
+const RestaurantScreen = ({ navigation }) => {
 	const {isLoading, restaurants, error} = useContext(RestaurantContext)
 	
 	return (
@@ -28,7 +28,13 @@ const RestaurantScreen = () => {
 				<RestaurantList
 					data={restaurants}
 					renderItem={({item}) => {
-						return (<RestaurantInfo restaurant={item}/>)
+						return (
+							<Pressable onPress={
+								() => navigation.navigate("RestaurantDetail")
+								}>
+								<RestaurantInfo restaurant={item}/>
+							</Pressable>
+						)
 					}}
 					keyExtractor={(item) => item.name}
 					
