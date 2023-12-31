@@ -16,10 +16,15 @@ const Search = () => {
     const {keyword, search} = useContext(LocationContext);
     const [searchKeyword, setSearchKeyword] = useState(keyword)
 
+    useEffect(() => {
+        setSearchKeyword(keyword)
+    }, [keyword])
+
     return (
         <SearchContainer>
             <Searchbar 
                 placeholder="Google me" 
+                icon="map"
                 value={searchKeyword}
                 onSubmitEditing={() => search(searchKeyword)}
                 onChangeText={(text) => {
