@@ -65,9 +65,13 @@ const RestaurantDetailScreen = ({route}) => {
                 expanded={dessertExpanded}
                 onPress={() => setDessertExpanded(!dessertExpanded)}
             >
-                <List.Item title="Chocolate Martini" />
+                <List.Item 
+                    title="Chocolate Martini" 
+                    left={(props) => <List.Icon {...props} icon="fruit-citrus"/>}/>
                 <List.Item title="Italian Cookie" />
-                <List.Item title="White Russian" />
+                <List.Item 
+                    title="White Russian" 
+                    left={(props) => <List.Icon {...props} icon="fruit-grapes"/>}/>
                 <List.Item title="Irish Affogato" />
             </List.Accordion>
             </ScrollView>

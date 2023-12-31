@@ -4,6 +4,7 @@ import { SafeArea } from "../../features/restaurants/screens/restaurant-screen-s
 import RestaurantsNavigator from "./restaurant_navigator";
 import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MapScreen } from "../../features/map/screens/map_screen";
 
 const Navigator = () => {
 
@@ -13,12 +14,6 @@ const Navigator = () => {
 		Restaurants: ['ios-restaurant-sharp', 'ios-restaurant-outline'],
 		Map: ["map-sharp", "map-outline"],
 		Settings: ["settings-sharp", "settings-outline"]
-	}
-
-	const Map = () => {
-		return <SafeArea>
-			<Text>Map</Text>
-		</SafeArea>
 	}
 
 	const Settings = () => {
@@ -50,7 +45,7 @@ const Navigator = () => {
         <NavigationContainer>
             <Tab.Navigator screenOptions={createScreenOptions}>
                 <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-                <Tab.Screen name="Map" component={Map} />
+                <Tab.Screen name="Map" component={MapScreen} />
                 <Tab.Screen name="Settings" component={Settings} />
             </Tab.Navigator>
         </NavigationContainer>
