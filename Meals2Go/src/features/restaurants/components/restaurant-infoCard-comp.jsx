@@ -16,7 +16,7 @@ export const RestaurantInfo = ({restaurant}) => {
         icon, 
         photos,
         address = restaurant['vicinity'],
-        isOpenNow = restaurant['openingHours'],
+        isOpenNow = restaurant['openingHours'], 
         rating,
         isClosedTemporarily,
     } = restaurant;
