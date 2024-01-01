@@ -5,7 +5,7 @@
       {
         "business_status": "OPERATIONAL",
         "geometry": {
-          "location": {
+          "location": { 
             "lat": 43.6465623,
             "lng": -79.374578
           },

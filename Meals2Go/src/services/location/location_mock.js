@@ -21,6 +21,20 @@ module.exports.locations = {
         },
       ],
     },
+    lagos:{
+      restults: [
+        {
+          geometry: {
+            location: { lat: 6.5244, lng: 3.3792 },
+            viewport: {
+              northeast: { lat: 6.5258, lng: 3.3806 },
+              southwest: { lat: 6.5231, lng: 3.3779 },
+            },
+          },
+        },
+      ],
+      status: "OK",
+    },
     "san francisco": {
       results: [
         {

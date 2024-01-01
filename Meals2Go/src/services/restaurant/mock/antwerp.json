@@ -687,7 +687,208 @@
       ],
       "user_ratings_total": 60,
       "vicinity": "Scheldestraat 15, Antwerpen"
-    }
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 51.21892750000001,
+          "lng": 4.3944361
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 51.2201378802915,
+            "lng": 4.396247430291502
+          },
+          "southwest": {
+            "lat": 51.2174399197085,
+            "lng": 4.393549469708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Zuiderterras / RAS",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [""],
+          "photo_reference": "",
+          "width": 3024
+        }
+      ],
+      "place_id": "some place id 12",
+      "plus_code": {
+        "compound_code": "",
+        "global_code": ""
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "",
+      "scope": "",
+      "types": [
+        "restaurant",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 854,
+      "vicinity": "Ernest Van Dijckkaai 37, Antwerpen"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 51.21892750000001,
+          "lng": 4.3944361
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 51.2201378802915,
+            "lng": 4.396247430291502
+          },
+          "southwest": {
+            "lat": 51.2174399197085,
+            "lng": 4.393549469708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Sunset Bistro",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [""],
+          "photo_reference": "",
+          "width": 3024
+        }
+      ],
+      "place_id": "some place id 13",
+      "plus_code": {
+        "compound_code": "",
+        "global_code": ""
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "",
+      "scope": "",
+      "types": [
+        "restaurant",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 921,
+      "vicinity": "Ernest Van Dijckkaai 38, Antwerpen"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 51.21892750000001,
+          "lng": 4.3944361
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 51.2201378802915,
+            "lng": 4.396247430291502
+          },
+          "southwest": {
+            "lat": 51.2174399197085,
+            "lng": 4.393549469708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Gourmet Garden",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [""],
+          "photo_reference": "",
+          "width": 3024
+        }
+      ],
+      "place_id": "some place id 14",
+      "plus_code": {
+        "compound_code": "",
+        "global_code": ""
+      },
+      "price_level": 3,
+      "rating": 4.6,
+      "reference": "",
+      "scope": "",
+      "types": [
+        "restaurant",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 647,
+      "vicinity": "Ernest Van Dijckkaai 39, Antwerpen"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 51.21892750000001,
+          "lng": 4.3944361
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 51.2201378802915,
+            "lng": 4.396247430291502
+          },
+          "southwest": {
+            "lat": 51.2174399197085,
+            "lng": 4.393549469708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Urban Eats",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [""],
+          "photo_reference": "",
+          "width": 3024
+        }
+      ],
+      "place_id": "some place id 15",
+      "plus_code": {
+        "compound_code": "",
+        "global_code": ""
+      },
+      "price_level": 2,
+      "rating": 4.0,
+      "reference": "",
+      "scope": "",
+      "types": [
+        "restaurant",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 732,
+      "vicinity": "Ernest Van Dijckkaai 40, Antwerpen"
+    }    
+    
   ],
   "status": "OK"
 }
