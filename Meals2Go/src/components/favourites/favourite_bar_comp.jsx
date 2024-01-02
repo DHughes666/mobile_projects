@@ -2,7 +2,7 @@ import styled from "styled-components/native"
 import { ScrollView, TouchableOpacity } from "react-native"
 import {CompactRestaurantInfo} from "./compact_rest_info_comp"
 import { Spacer } from "../spacer/spacer-comp"
-
+import { Text } from "../typography/text-comp";
 
 
 const FaveView = styled.View`
@@ -10,9 +10,14 @@ const FaveView = styled.View`
 `
 
 const FavouritesBar = ({favourites, onNavigate}) => {
-    
+    if(!favourites.length){
+        return null;
+    }
     return (
         <FaveView>
+            <Spacer variant="left.large">
+                <Text variant="caption">Favourites</Text>
+            </Spacer>
             <ScrollView
                 horizontal showsHorizontalScrollIndicator={false}
             >
