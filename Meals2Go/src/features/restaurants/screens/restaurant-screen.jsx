@@ -9,7 +9,7 @@ import Search from "../components/search_comp";
 
 const RestaurantScreen = ({ navigation }) => {
 	const {isLoading, restaurants, error} = useContext(RestaurantContext)
-	
+		
 	return (
 		<>
 			<SafeArea>

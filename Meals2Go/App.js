@@ -11,6 +11,7 @@ import {useFonts as useLato,
 import {theme} from "./src/infrastructure/theme/index"
 import { RestaurantContextProvider } from "./src/services/restaurant/restaurant_context";
 import { LocationContextProvider } from "./src/services/location/location_context";
+import { FavouritesContextProvider } from "./src/services/favourites/favourites_context";
 
 
 export default function App() {
@@ -31,11 +32,13 @@ export default function App() {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<LocationContextProvider>
-					<RestaurantContextProvider>
-						<Navigator />
-					</RestaurantContextProvider>
-				</LocationContextProvider>
+				<FavouritesContextProvider>
+					<LocationContextProvider>
+						<RestaurantContextProvider>
+							<Navigator />
+						</RestaurantContextProvider>
+					</LocationContextProvider>
+				</FavouritesContextProvider>
 			</ThemeProvider>
 			<StatusBar style="auto" />
 		</>
