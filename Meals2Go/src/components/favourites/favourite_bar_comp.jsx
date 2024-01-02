@@ -1,5 +1,5 @@
 import styled from "styled-components/native"
-import { ScrollView } from "react-native"
+import { ScrollView, TouchableOpacity } from "react-native"
 import {CompactRestaurantInfo} from "./compact_rest_info_comp"
 import { Spacer } from "../spacer/spacer-comp"
 
@@ -9,7 +9,8 @@ const FaveView = styled.View`
     padding: 10px;
 `
 
-const FavouritesBar = ({favourites}) => {
+const FavouritesBar = ({favourites, onNavigate}) => {
+    
     return (
         <FaveView>
             <ScrollView
@@ -20,7 +21,11 @@ const FavouritesBar = ({favourites}) => {
                         const key = restaurant.name;
                         return(
                             <Spacer key={key} position='left' size='medium'>
-                                <CompactRestaurantInfo restaurant={restaurant} />
+                                <TouchableOpacity onPress={() => 
+                                    onNavigate("RestaurantDetail", {restaurant})
+                                }>
+                                    <CompactRestaurantInfo restaurant={restaurant} />
+                                </TouchableOpacity>
                             </Spacer>
                         )
                     })
