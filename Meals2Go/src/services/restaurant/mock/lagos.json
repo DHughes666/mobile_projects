@@ -1,454 +1,109 @@
 {
   "html_attributions": [],
-  "next_page_token": "some token",
+  "next_page_token": "some_token",
   "results": [
     {
       "business_status": "OPERATIONAL",
       "geometry": {
         "location": {
-          "lat": 6.421056,
-            "lng": 3.441389
+          "lat": 6.5244,
+          "lng": 3.3792
         },
         "viewport": {
           "northeast": {
-            "lat": 6.409405380291501,
-              "lng": 3.402738180291502
+            "lat": 6.525775980291501,
+            "lng": 3.380523180291502
           },
           "southwest": {
-            "lat": 6.429707419708497,
-              "lng": 3.428040219708498
+            "lat": 6.523078019708497,
+            "lng": 3.377825219708498
           }
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-      "name": "Eko Restaurant",
+      "name": "Lagos Hotel 1",
       "opening_hours": {
         "open_now": true
       },
       "photos": [
         {
-          "height": 0,
-          "html_attributions": [],
+          "height": 3000,
+          "html_attributions": [
+            ""
+          ],
           "photo_reference": "",
-          "width": 0
+          "width": 4000
         }
       ],
-      "place_id": "some place id 1",
-      "rating": 4,
+      "place_id": "some_place_id_1",
+      "plus_code": {
+        "compound_code": "",
+        "global_code": ""
+      },
+      "rating": 4.2,
       "reference": "",
-      "user_ratings_total": 832,
-      "vicinity": "Quinten Matsijslei 25, Antwerpen"
+      "scope": "",
+      "types": [
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 120,
+      "vicinity": "1 Lagos Street, Lagos"
     },
-      {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-          "location": {
-            "lat": 6.428056,
-            "lng": 3.421389
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 6.5184,
+          "lng": 3.3524
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 6.519775980291501,
+            "lng": 3.353723180291502
           },
-          "viewport": {
-            "northeast": {
-              "lat": 6.429405380291501,
-              "lng": 3.422738180291502
-            },
-            "southwest": {
-              "lat": 6.426707419708497,
-              "lng": 3.420040219708498
-            }
+          "southwest": {
+            "lat": 6.517078019708497,
+            "lng": 3.351025219708498
           }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "name": "Nkoyo",
-        "opening_hours": {
-          "open_now": true
-        },
-        "photos": [
-          {
-            "height": 1067,
-            "html_attributions": [
-              ""
-            ],
-            "photo_reference": "",
-            "width": 1600
-          }
-        ],
-        "place_id": "some place id 41",
-        "plus_code": {
-          "compound_code": "",
-          "global_code": ""
-        },
-        "price_level": 3,
-        "rating": 4.2,
-        "reference": "",
-        "scope": "",
-        "types": [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
-        ],
-        "user_ratings_total": 1245,
-        "vicinity": "19B Idejo Street, Victoria Island, Lagos"
+        }
       },
-      {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-          "location": {
-            "lat": 6.4469522,
-            "lng": 3.4173721
-          },
-          "viewport": {
-            "northeast": {
-              "lat": 6.448292130291502,
-              "lng": 3.418712030291502
-            },
-            "southwest": {
-              "lat": 6.445594169708498,
-              "lng": 3.416014069708498
-            }
-          }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "name": "Sky Restaurant & Lounge",
-        "opening_hours": {
-          "open_now": true
-        },
-        "photos": [
-          {
-            "height": 1367,
-            "html_attributions": [
-              ""
-            ],
-            "photo_reference": "",
-            "width": 2048
-          }
-        ],
-        "place_id": "some place id 42",
-        "plus_code": {
-          "compound_code": "",
-          "global_code": ""
-        },
-        "price_level": 3,
-        "rating": 4.5,
-        "reference": "",
-        "scope": "",
-        "types": [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
-        ],
-        "user_ratings_total": 982,
-        "vicinity": "Rooftop, Eko Hotel & Suites, Adetokunbo Ademola Street, Victoria Island, Lagos"
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "name": "Lagos Hotel 2",
+      "opening_hours": {
+        "open_now": true
       },
-      {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-          "location": {
-            "lat": 6.4417508,
-            "lng": 3.4179012
-          },
-          "viewport": {
-            "northeast": {
-              "lat": 6.443199380291502,
-              "lng": 3.419116180291502
-            },
-            "southwest": {
-              "lat": 6.440501419708498,
-              "lng": 3.416418219708498
-            }
-          }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "name": "Bungalow Restaurant",
-        "opening_hours": {
-          "open_now": true
-        },
-        "photos": [
-          {
-            "height": 600,
-            "html_attributions": [
-              ""
-            ],
-            "photo_reference": "",
-            "width": 900
-          }
-        ],
-        "place_id": "some place id 43",
-        "plus_code": {
-          "compound_code": "",
-          "global_code": ""
-        },
-        "price_level": 3,
-        "rating": 4.3,
-        "reference": "",
-        "scope": "",
-        "types": [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
-        ],
-        "user_ratings_total": 1523,
-        "vicinity": "1296 Akin Adesola Street, Victoria Island, Lagos"
+      "photos": [
+        {
+          "height": 3000,
+          "html_attributions": [
+            ""
+          ],
+          "photo_reference": "",
+          "width": 4000
+        }
+      ],
+      "place_id": "some_place_id_2",
+      "plus_code": {
+        "compound_code": "",
+        "global_code": ""
       },
-      {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-          "location": {
-            "lat": 6.4427509,
-            "lng": 3.426996
-          },
-          "viewport": {
-            "northeast": {
-              "lat": 6.444110880291501,
-              "lng": 3.428345980291501
-            },
-            "southwest": {
-              "lat": 6.441412919708497,
-              "lng": 3.425648019708497
-            }
-          }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "name": "Yellow Chilli",
-        "opening_hours": {
-          "open_now": true
-        },
-        "photos": [
-          {
-            "height": 800,
-            "html_attributions": [
-              ""
-            ],
-            "photo_reference": "",
-            "width": 1200
-          }
-        ],
-        "place_id": "some place id 44",
-        "plus_code": {
-          "compound_code": "",
-          "global_code": ""
-        },
-        "price_level": 2,
-        "rating": 4.1,
-        "reference": "",
-        "scope": "",
-        "types": [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
-        ],
-        "user_ratings_total": 931,
-        "vicinity": "27 Oju Olobun Close, Victoria Island, Lagos"
-      },
-      {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-          "location": {
-            "lat": 6.4478065,
-            "lng": 3.4183864
-          },
-          "viewport": {
-            "northeast": {
-              "lat": 6.449156430291501,
-              "lng": 3.419736330291502
-            },
-            "southwest": {
-              "lat": 6.446458469708497,
-              "lng": 3.417038369708498
-            }
-          }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "name": "Craft Gourmet by Lou Baker",
-        "opening_hours": {
-          "open_now": true
-        },
-        "photos": [
-          {
-            "height": 853,
-            "html_attributions": [
-              ""
-            ],
-            "photo_reference": "",
-            "width": 1280
-          }
-        ],
-        "place_id": "some place id 45",
-        "plus_code": {
-          "compound_code": "",
-          "global_code": ""
-        },
-        "price_level": 3,
-        "rating": 4.4,
-        "reference": "",
-        "scope": "",
-        "types": [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
-        ],
-        "user_ratings_total": 839,
-        "vicinity": "14 Idowu Martins Street, Victoria Island, Lagos"
-      },
-      {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-          "location": {
-            "lat": 6.4298791,
-            "lng": 3.4199132
-          },
-          "viewport": {
-            "northeast": {
-              "lat": 6.431228880291501,
-              "lng": 3.421263080291502
-            },
-            "southwest": {
-              "lat": 6.428530919708497,
-              "lng": 3.418565119708498
-            }
-          }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "name": "Casper & Gambini's",
-        "opening_hours": {
-          "open_now": true
-        },
-        "photos": [
-          {
-            "height": 800,
-            "html_attributions": [
-              ""
-            ],
-            "photo_reference": "",
-            "width": 1200
-          }
-        ],
-        "place_id": "some place id 46",
-        "plus_code": {
-          "compound_code": "",
-          "global_code": ""
-        },
-        "price_level": 3,
-        "rating": 4.2,
-        "reference": "",
-        "scope": "",
-        "types": [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
-        ],
-        "user_ratings_total": 1073,
-        "vicinity": "2 Saka Tinubu Street, Victoria Island, Lagos"
-      },
-      {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-          "location": {
-            "lat": 6.4387359,
-            "lng": 3.4219513
-          },
-          "viewport": {
-            "northeast": {
-              "lat": 6.440085780291501,
-              "lng": 3.423301180291502
-            },
-            "southwest": {
-              "lat": 6.437387819708498,
-              "lng": 3.420603219708498
-            }
-          }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "name": "Ocean Basket",
-        "opening_hours": {
-          "open_now": true
-        },
-        "photos": [
-          {
-            "height": 1060,
-            "html_attributions": [
-              ""
-            ],
-            "photo_reference": "",
-            "width": 1600
-          }
-        ],
-        "place_id": "some place id 47",
-        "plus_code": {
-          "compound_code": "",
-          "global_code": ""
-        },
-        "price_level": 2,
-        "rating": 4.0,
-        "reference": "",
-        "scope": "",
-        "types": [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
-        ],
-        "user_ratings_total": 942,
-        "vicinity": "Plot 1411 Adetokunbo Ademola Street, Victoria Island, Lagos"
-      },
-      {
-        "business_status": "OPERATIONAL",
-        "geometry": {
-          "location": {
-            "lat": 6.431477,
-            "lng": 3.421965
-          },
-          "viewport": {
-            "northeast": {
-              "lat": 6.432826980291501,
-              "lng": 3.423314980291502
-            },
-            "southwest": {
-              "lat": 6.430129019708497,
-              "lng": 3.420617019708498
-            }
-          }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-        "name": "RSVP Restaurant",
-        "opening_hours": {
-          "open_now": true
-        },
-        "photos": [
-          {
-            "height": 1367,
-            "html_attributions": [
-              ""
-            ],
-            "photo_reference": "",
-            "width": 2048
-          }
-        ],
-        "place_id": "some place id 48",
-        "plus_code": {
-          "compound_code": "",
-          "global_code": ""
-        },
-        "price_level": 3,
-        "rating": 4.2,
-        "reference": "",
-        "scope": "",
-        "types": [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
-        ],
-        "user_ratings_total": 804,
-        "vicinity": "9 Eletu Ogabi Street, Victoria Island, Lagos"
-      }
-    ],
-    "status": "OK"
-  }
-      
-  
+      "rating": 4.0,
+      "reference": "",
+      "scope": "",
+      "types": [
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 90,
+      "vicinity": "2 Lagos Street, Lagos"
+    }
+  ],
+  "status": "OK"
+}
