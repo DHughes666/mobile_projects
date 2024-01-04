@@ -1,13 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 import Navigator from "./src/infrastructure/navigation/app_navigator";
-
-
 import {useFonts as useOswald, 
 	Oswald_400Regular} from '@expo-google-fonts/oswald';
 import {useFonts as useLato, 
 	Lato_400Regular} from '@expo-google-fonts/lato';
-
 import {theme} from "./src/infrastructure/theme/index"
 import { RestaurantContextProvider } from "./src/services/restaurant/restaurant_context";
 import { LocationContextProvider } from "./src/services/location/location_context";
