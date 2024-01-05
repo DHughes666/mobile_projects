@@ -4,7 +4,7 @@ import {initializeApp} from "firebase/app"
 import { firebaseConfig } from "./src/utils/firebaseConfig";
 import {initializeAuth, getReactNativePersistence} from "firebase/auth";
 import { ReactNativeAsyncStorage } from "@react-native-async-storage/async-storage";
-import Navigator from "./src/infrastructure/navigation/app_navigator";
+import { Navigator } from "./src/infrastructure/navigation/index";
 import {useFonts as useOswald, 
 	Oswald_400Regular} from '@expo-google-fonts/oswald';
 import {useFonts as useLato, 
