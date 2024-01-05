@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 import {initializeApp} from "firebase/app"
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword, 
+	initializeAuth, getReactNativePersistence} from "firebase/auth";
+import { ReactNativeAsyncStorage } from "@react-native-async-storage/async-storage";
 import Navigator from "./src/infrastructure/navigation/app_navigator";
 import {useFonts as useOswald, 
 	Oswald_400Regular} from '@expo-google-fonts/oswald';
@@ -25,21 +27,26 @@ const firebaseConfig = {
 	measurementId: 'G-measurement-id',
   };
   
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = initializeAuth(app, {
+	persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+})
 
 export default function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-	const auth = getAuth()
+	const authy = getAuth();
 	useEffect(() => {
-		signInWithEmailAndPassword(auth, "email", "password")
-		.then((user) => {
-			console.log(user);
-			setIsAuthenticated(true);
-		})
-		.catch((error) => {
-			console.log(error.message);
-		});
+		setTimeout(() => {
+			signInWithEmailAndPassword(authy, "albion@email.com", "testpass123")
+			.then((user) => {
+				console.log(user);
+				setIsAuthenticated(true);
+			})
+			.catch((error) => {
+				console.log(error.message);
+			});
+		}, 2000);
 	},[])
 
 	const [oswaldLoaded] = useOswald({
@@ -54,7 +61,9 @@ export default function App() {
 		return null;
 	}
 
-
+	if(!isAuthenticated) {
+		return null;
+	}
 	return (
 		<>
 			<ThemeProvider theme={theme}>
