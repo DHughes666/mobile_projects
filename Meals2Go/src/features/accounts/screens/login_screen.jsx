@@ -1,10 +1,11 @@
 import { View, Text } from "react-native"
+import { AccountBackground } from "../components/account_styles";
 
 const LoginScreen = () => {
     return (
-        <View>
+        <AccountBackground>
             <Text>Login</Text>
-        </View>
+        </AccountBackground>
     )
 }
 

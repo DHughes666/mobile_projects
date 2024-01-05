@@ -10,7 +10,7 @@ const AccountScreen = ({navigation}) => {
                 <AuthButton
                     icon="lock-open-outline"
                     mode="contained"
-                    onPress={navigation.navigate("login")}
+                    onPress={() => navigation.navigate("Login")}
                 >
                     Login
                 </AuthButton>
@@ -18,7 +18,7 @@ const AccountScreen = ({navigation}) => {
                 <AuthButton
                     icon="lock-open-outline"
                     mode="contained"
-                    onPress={navigation.navigate("register")}
+                    onPress={() => navigation.navigate("Register")}
                 >
                     Register
                 </AuthButton>
