@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 import {initializeApp} from "firebase/app"
-import {getAuth, signInWithEmailAndPassword, 
-	initializeAuth, getReactNativePersistence} from "firebase/auth";
+import {initializeAuth, getReactNativePersistence} from "firebase/auth";
 import { ReactNativeAsyncStorage } from "@react-native-async-storage/async-storage";
 import Navigator from "./src/infrastructure/navigation/app_navigator";
 import {useFonts as useOswald, 
@@ -11,9 +10,11 @@ import {useFonts as useOswald,
 import {useFonts as useLato, 
 	Lato_400Regular} from '@expo-google-fonts/lato';
 import {theme} from "./src/infrastructure/theme/index"
+import { AuthenticationContextProvider } from "./src/services/authentication/authentication_context";
 import { RestaurantContextProvider } from "./src/services/restaurant/restaurant_context";
 import { LocationContextProvider } from "./src/services/location/location_context";
 import { FavouritesContextProvider } from "./src/services/favourites/favourites_context";
+
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -26,28 +27,16 @@ const firebaseConfig = {
 	appId: '1:308346714959:web:9679531c6e46d59c2be33a',
 	measurementId: 'G-measurement-id',
   };
-  
-const app = initializeApp(firebaseConfig);
-const auth = initializeAuth(app, {
-	persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-})
+
+  if(initializeApp(firebaseConfig) === null){
+	const app = initializeApp(firebaseConfig);
+	const auth = initializeAuth(app, {
+		persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+	})
+  } 
+
 
 export default function App() {
-	const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-	const authy = getAuth();
-	useEffect(() => {
-		setTimeout(() => {
-			signInWithEmailAndPassword(authy, "albion@email.com", "testpass123")
-			.then((user) => {
-				console.log(user);
-				setIsAuthenticated(true);
-			})
-			.catch((error) => {
-				console.log(error.message);
-			});
-		}, 2000);
-	},[])
 
 	const [oswaldLoaded] = useOswald({
 		Oswald_400Regular,
@@ -61,19 +50,19 @@ export default function App() {
 		return null;
 	}
 
-	if(!isAuthenticated) {
-		return null;
-	}
+	
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<FavouritesContextProvider>
-					<LocationContextProvider>
-						<RestaurantContextProvider>
-							<Navigator />
-						</RestaurantContextProvider>
-					</LocationContextProvider>
-				</FavouritesContextProvider>
+				<AuthenticationContextProvider>
+					<FavouritesContextProvider>
+						<LocationContextProvider>
+							<RestaurantContextProvider>
+								<Navigator />
+							</RestaurantContextProvider>
+						</LocationContextProvider>
+					</FavouritesContextProvider>
+				</AuthenticationContextProvider>
 			</ThemeProvider>
 			<StatusBar style="auto" />
 		</>
