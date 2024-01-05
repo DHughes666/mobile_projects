@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 import {initializeApp} from "firebase/app"
+import { firebaseConfig } from "./src/utils/firebaseConfig";
 import {initializeAuth, getReactNativePersistence} from "firebase/auth";
 import { ReactNativeAsyncStorage } from "@react-native-async-storage/async-storage";
 import Navigator from "./src/infrastructure/navigation/app_navigator";
@@ -16,24 +16,12 @@ import { LocationContextProvider } from "./src/services/location/location_contex
 import { FavouritesContextProvider } from "./src/services/favourites/favourites_context";
 
 
-// Initialize Firebase
-const firebaseConfig = {
-	apiKey: 'AIzaSyBK2iBQNxWgMi1i_Qk2OBaGd1TSqf27Uvo',
-	authDomain: 'meals2go-56498.firebaseapp.com',
-	databaseURL: 'https://project-id.firebaseio.com',
-	projectId: 'meals2go-56498',
-	storageBucket: 'meals2go-56498.appspot.com',
-	messagingSenderId: '308346714959',
-	appId: '1:308346714959:web:9679531c6e46d59c2be33a',
-	measurementId: 'G-measurement-id',
-  };
-
-  if(initializeApp(firebaseConfig) === null){
-	const app = initializeApp(firebaseConfig);
-	const auth = initializeAuth(app, {
-		persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-	})
-  } 
+if(initializeApp(firebaseConfig) === null){
+const app = initializeApp(firebaseConfig);
+const auth = initializeAuth(app, {
+	persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+})
+} 
 
 
 export default function App() {
