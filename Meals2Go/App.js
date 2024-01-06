@@ -16,13 +16,12 @@ import { LocationContextProvider } from "./src/services/location/location_contex
 import { FavouritesContextProvider } from "./src/services/favourites/favourites_context";
 
 
-if(initializeApp(firebaseConfig) === null){
-const app = initializeApp(firebaseConfig);
-const auth = initializeAuth(app, {
+if(initializeApp(firebaseConfig) !== null){
+	const app = initializeApp(firebaseConfig);
+	const auth = initializeAuth(app, {
 	persistence: getReactNativePersistence(ReactNativeAsyncStorage)
 })
 } 
-
 
 export default function App() {
 
