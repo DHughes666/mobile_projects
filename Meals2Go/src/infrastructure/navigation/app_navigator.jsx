@@ -1,12 +1,14 @@
 import {Ionicons} from "@expo/vector-icons"
 import { SafeArea } from "../../features/restaurants/screens/restaurant-screen-styles";
 import RestaurantsNavigator from "./restaurant_navigator";
-import { Text } from "react-native";
+import { Text, Button } from "react-native";
+import { useContext } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MapScreen } from "../../features/map/screens/map_screen";
+import { AuthenticationContext } from "../../services/authentication/authentication_context";
 
 const AppNavigator = () => {
-
+    
     const Tab = createBottomTabNavigator();
 
 	const TAB_ICON = {
@@ -16,8 +18,10 @@ const AppNavigator = () => {
 	}
 
 	const Settings = () => {
+        const {onLogout} = useContext(AuthenticationContext);
 		return <SafeArea>
 			<Text>Settings</Text>
+            <Button title="logout" onPress={() => onLogout()}/>
 		</SafeArea>
 	}
 

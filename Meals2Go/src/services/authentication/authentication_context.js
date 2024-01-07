@@ -1,20 +1,17 @@
 import { useState, createContext, useEffect } from "react";
 import { loginRequest, registerRequest } from "./authentication_service";
-import {onAuthStateChanged, signOut} from "firebase/auth";
-
 import {initializeApp} from "firebase/app"
 import { firebaseConfig} from "../../../src/utils/firebaseConfig"
-import {initializeAuth, getReactNativePersistence, getAuth} from "firebase/auth";
+import {initializeAuth, getReactNativePersistence, 
+    onAuthStateChanged, signOut, getAuth} from "firebase/auth";
 import { ReactNativeAsyncStorage } from "@react-native-async-storage/async-storage";
 
-if(initializeApp(firebaseConfig) !== null){
-	const app = initializeApp(firebaseConfig);
-	const auth = initializeAuth(app, {
-	persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-})
-} 
 
-const authy = getAuth(initializeApp(firebaseConfig));
+const app = initializeApp(firebaseConfig);
+const auth = initializeAuth(app, {
+	persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+        })
+const authy = getAuth(app);
 
 export const AuthenticationContext = createContext();
 
@@ -24,20 +21,24 @@ export const AuthenticationContextProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState([]);
 
-    onAuthStateChanged(authy, (u) => {
-        if (u) {
-            setIsLoading(false);
-            setUser(u);
-        } else {
-            setIsLoading(false);
-        }
-      });
+    const stateChange = () => {
+        onAuthStateChanged(authy, (u) => {
+            if (u) {
+                setUser(u);
+                setIsLoading(false);
+                console.log('state-change has been fired');
+            } else {
+                setIsLoading(false);
+            }
+          });
+    }
 
     const onLogin = (email, password) => {
         setIsLoading(true);
         loginRequest(authy, email, password)
             .then((usey) => {
                 setUser(usey);
+                // setIsAuthenticated(true);
                 setIsLoading(false);
             })
             .catch((e) => {
@@ -55,6 +56,7 @@ export const AuthenticationContextProvider = ({children}) => {
         registerRequest(authy, email, password)
             .then((regy) => {
                 setUser(regy);
+                // setIsAuthenticated(true);
                 setIsLoading(false)
             })
             .catch((err) => {
@@ -67,11 +69,16 @@ export const AuthenticationContextProvider = ({children}) => {
     const onLogout = () => {
         setUser(null);
         signOut(authy);
+        // setIsAuthenticated(false);
     };
+
+    useEffect(() => {
+        stateChange();
+    }, []);
 
 
     const values = {
-        isAuthenticated: !!user,
+        isAuthenticated: user,
         user, 
         isLoading,
         error,
