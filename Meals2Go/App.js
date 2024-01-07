@@ -7,10 +7,6 @@ import {useFonts as useLato,
 	Lato_400Regular} from '@expo-google-fonts/lato';
 import {theme} from "./src/infrastructure/theme/index"
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication_context";
-import { RestaurantContextProvider } from "./src/services/restaurant/restaurant_context";
-import { LocationContextProvider } from "./src/services/location/location_context";
-import { FavouritesContextProvider } from "./src/services/favourites/favourites_context";
-
 
 
 export default function App() {
@@ -32,13 +28,7 @@ export default function App() {
 		<>
 			<ThemeProvider theme={theme}>
 				<AuthenticationContextProvider>
-					<FavouritesContextProvider>
-						<LocationContextProvider>
-							<RestaurantContextProvider>
-								<Navigator />
-							</RestaurantContextProvider>
-						</LocationContextProvider>
-					</FavouritesContextProvider>
+					<Navigator />
 				</AuthenticationContextProvider>
 			</ThemeProvider>
 			<StatusBar style="auto" />

@@ -6,6 +6,10 @@ import { useContext } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MapScreen } from "../../features/map/screens/map_screen";
 import { AuthenticationContext } from "../../services/authentication/authentication_context";
+import { RestaurantContextProvider } from "../../services/restaurant/restaurant_context";
+import { LocationContextProvider } from "../../services/location/location_context";
+import { FavouritesContextProvider } from "../../services/favourites/favourites_context";
+
 
 const AppNavigator = () => {
     
@@ -43,15 +47,19 @@ const AppNavigator = () => {
         headerShown: false,
         
     })
-
-    return (
-
-        <Tab.Navigator screenOptions={createScreenOptions}>
-            <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-            <Tab.Screen name="Map" component={MapScreen} />
-            <Tab.Screen name="Settings" component={Settings} />
-        </Tab.Navigator>
     
+    return (
+        <FavouritesContextProvider>
+            <LocationContextProvider>
+                <RestaurantContextProvider>
+                    <Tab.Navigator screenOptions={createScreenOptions}>
+                        <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+                        <Tab.Screen name="Map" component={MapScreen} />
+                        <Tab.Screen name="Settings" component={Settings} />
+                    </Tab.Navigator>
+                </RestaurantContextProvider>
+            </LocationContextProvider>
+        </FavouritesContextProvider>
     )
 };
 
