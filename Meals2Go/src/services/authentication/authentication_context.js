@@ -1,8 +1,20 @@
 import { useState, createContext, useEffect } from "react";
 import { loginRequest, registerRequest } from "./authentication_service";
-import {getAuth} from "firebase/auth";
+import {onAuthStateChanged, signOut} from "firebase/auth";
+
 import {initializeApp} from "firebase/app"
-import { firebaseConfig } from "../../utils/firebaseConfig";
+import { firebaseConfig} from "../../../src/utils/firebaseConfig"
+import {initializeAuth, getReactNativePersistence, getAuth} from "firebase/auth";
+import { ReactNativeAsyncStorage } from "@react-native-async-storage/async-storage";
+
+if(initializeApp(firebaseConfig) !== null){
+	const app = initializeApp(firebaseConfig);
+	const auth = initializeAuth(app, {
+	persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+})
+} 
+
+const authy = getAuth(initializeApp(firebaseConfig));
 
 export const AuthenticationContext = createContext();
 
@@ -12,9 +24,14 @@ export const AuthenticationContextProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState([]);
 
-    const app = initializeApp(firebaseConfig)
-
-    const authy = getAuth(app);
+    onAuthStateChanged(authy, (u) => {
+        if (u) {
+            setIsLoading(false);
+            setUser(u);
+        } else {
+            setIsLoading(false);
+        }
+      });
 
     const onLogin = (email, password) => {
         setIsLoading(true);
@@ -22,15 +39,15 @@ export const AuthenticationContextProvider = ({children}) => {
             .then((usey) => {
                 setUser(usey);
                 setIsLoading(false);
-                setIsAuthenticated(true);
             })
             .catch((e) => {
             setIsLoading(false);
-            setError(e.message.toString());
+            setError(e.toString());
         });
     };
 
     const onRegister = (email, password, repeatedPassword) => {
+        setIsLoading(true);
         if(password !== repeatedPassword) {
             setError("Error: Passwords do not match");
             return;
@@ -42,18 +59,25 @@ export const AuthenticationContextProvider = ({children}) => {
             })
             .catch((err) => {
                 setIsLoading(false);
-                setError(err.message.toString());
+                setError(err.toString());
             })
 
     }
 
+    const onLogout = () => {
+        setUser(null);
+        signOut(authy);
+    };
+
+
     const values = {
+        isAuthenticated: !!user,
         user, 
         isLoading,
         error,
         onLogin,
         onRegister,
-        isAuthenticated,
+        onLogout,
     };
     return (
         <AuthenticationContext.Provider value={values}>

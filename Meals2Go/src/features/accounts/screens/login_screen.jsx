@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { ActivityIndicator, MD2Colors } from "react-native-paper";
 import { AuthenticationContext } from "../../../services/authentication/authentication_context";
 import { 
     AccountBackground,
@@ -9,13 +10,13 @@ import {
     Title,
     ErrorContainer
  } from "../components/account_styles";
- import { Spacer } from "../../../components/spacer/spacer-comp";
-
+import { Spacer } from "../../../components/spacer/spacer-comp";
+import { Text } from "../../../components/typography/text-comp";
 
 const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { onLogin, error } = useContext(AuthenticationContext);
+    const { onLogin, isLoading, error } = useContext(AuthenticationContext);
     return (
         <AccountBackground>
             <AccountCover />
@@ -36,20 +37,27 @@ const LoginScreen = ({navigation}) => {
                     textContentType="password"
                     secureTextEntry
                     autoCapitalize="none"
-                    secure
                     onChangeText={(p) => setPassword(p)}
                 />
                 {error && <Spacer size="large">
-                    <ErrorContainer variant="error">{error}</ErrorContainer>
+                    <ErrorContainer>
+                        <Text variant="error">{error}</Text>
+                    </ErrorContainer>
                 </Spacer>}
                 <Spacer size="large"/>
-                <AuthButton
-                    icon="lock-open-outline"
+                {
+                    !isLoading ? (
+                        <AuthButton
+                    icon="lock-outline"
                     mode="contained"
                     onPress={() => onLogin(email, password)}
                 >
                     Login
                 </AuthButton>
+                    ) : (
+                        <ActivityIndicator animating={true} color={MD2Colors.blue200} />
+                    )
+                }
                 <Spacer />
             </AccountContainer>
             <Spacer size="large" />

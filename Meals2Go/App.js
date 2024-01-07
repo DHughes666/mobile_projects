@@ -1,9 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
-import {initializeApp} from "firebase/app"
-import { firebaseConfig } from "./src/utils/firebaseConfig";
-import {initializeAuth, getReactNativePersistence} from "firebase/auth";
-import { ReactNativeAsyncStorage } from "@react-native-async-storage/async-storage";
 import { Navigator } from "./src/infrastructure/navigation/index";
 import {useFonts as useOswald, 
 	Oswald_400Regular} from '@expo-google-fonts/oswald';
@@ -16,12 +12,6 @@ import { LocationContextProvider } from "./src/services/location/location_contex
 import { FavouritesContextProvider } from "./src/services/favourites/favourites_context";
 
 
-if(initializeApp(firebaseConfig) !== null){
-	const app = initializeApp(firebaseConfig);
-	const auth = initializeAuth(app, {
-	persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-})
-} 
 
 export default function App() {
 
