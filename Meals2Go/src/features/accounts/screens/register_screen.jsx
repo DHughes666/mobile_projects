@@ -69,6 +69,14 @@ const RegisterScreen = ({navigation}) => {
                     )
                 }
                 <Spacer />
+                <AuthButton 
+                    icon="google-plus"
+                    mode="contained"
+                    onPress={() => {}}
+                >
+                    Sign up with Google
+                </AuthButton>
+                <Spacer />
             </AccountContainer>
             <Spacer size="large" />
             <AuthButton mode="contained" 

@@ -2,7 +2,7 @@ import { useState, createContext, useEffect } from "react";
 import { loginRequest, registerRequest } from "./authentication_service";
 import {initializeApp} from "firebase/app"
 import { firebaseConfig} from "../../../src/utils/firebaseConfig"
-import {initializeAuth, getReactNativePersistence, 
+import {initializeAuth, getReactNativePersistence, GoogleAuthProvider,
     onAuthStateChanged, signOut, getAuth} from "firebase/auth";
 import { ReactNativeAsyncStorage } from "@react-native-async-storage/async-storage";
 
@@ -20,6 +20,8 @@ export const AuthenticationContextProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState(null);
     const [error, setError] = useState([]);
+
+    const provider = new GoogleAuthProvider()
 
     const stateChange = () => {
         onAuthStateChanged(authy, (u) => {
