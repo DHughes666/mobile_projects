@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 
-const GoalInput = ({addGoal}) => {
+const GoalInput = ({addGoal, visible}) => {
 
     const [enteredGoalText, setEnteredGoalText] = useState('');
 
@@ -21,7 +21,7 @@ const GoalInput = ({addGoal}) => {
         setEnteredGoalText('');
     };
     return (
-        <Modal>
+        <Modal visible={visible} animationType="slide">
             <View style={styles.inputContainer}>
                 <TextInput 
                     style={styles.textInput} 
