@@ -4,7 +4,7 @@ import {
     StyleSheet, 
     Button, 
     TextInput,
-    Modal 
+    Modal, Image, 
 } from "react-native";
 
 
@@ -23,6 +23,10 @@ const GoalInput = ({addGoal, visible, closeModal}) => {
     return (
         <Modal visible={visible} animationType="slide">
             <View style={styles.inputContainer}>
+                <Image 
+                    source={require('../assets/images/goal.png')}
+                    style={styles.image}
+                />
                 <TextInput 
                     style={styles.textInput} 
                     placeholder='Your course goal' 
@@ -51,6 +55,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 24,
+        backgroundColor: '#311b6b'
     },
     textInput: {
         borderWidth: 1, 
@@ -65,6 +70,11 @@ const styles = StyleSheet.create({
     button: {
         width: '30%',
         marginHorizontal: 8
+    },
+    image: {
+        width: 100,
+        height: 100,
+        margin: 20
     }
   });
 
