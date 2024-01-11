@@ -8,6 +8,7 @@ import {
   TextInput, 
   ScrollView, FlatList } from 'react-native';
 import GoalItem from './components/goalItem_comp';
+import GoalInput from './components/goalInput_comp';
 
 
 export default function App() {
@@ -27,14 +28,7 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <View style={styles.inputContainer}>
-        <TextInput 
-          style={styles.textInput} 
-          placeholder='Your course goal' 
-          onChangeText={goalInputHandler}
-        />
-        <Button title='Add Goal' onPress={addGoalHandler}/>
-      </View>
+      <GoalInput inputHandler={goalInputHandler} addHandler={addGoalHandler}/>
       <View style={styles.goalsContainer}>
         <FlatList data={courseGoals} 
           renderItem={itemData => {
