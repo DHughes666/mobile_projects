@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 16,
+    backgroundColor: '#a065ec',
   }, 
   inputContainer: {
     flex: 1,
