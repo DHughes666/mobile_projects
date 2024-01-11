@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 import { Text } from "react-native";
 
 
-const GoalItem = ({texty}) => {
-    <Text style={styles.goalItem}>{texty}</Text>
+const GoalItem = ({goal}) => {
+    return <Text style={styles.goalItem}>{goal}</Text>
 }
 
 const styles = StyleSheet.create({
