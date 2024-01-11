@@ -2,11 +2,8 @@ import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { 
   StyleSheet, 
-  Text, 
   View, 
-  Button, 
-  TextInput, 
-  ScrollView, FlatList } from 'react-native';
+  FlatList } from 'react-native';
 import GoalItem from './components/goalItem_comp';
 import GoalInput from './components/goalInput_comp';
 
