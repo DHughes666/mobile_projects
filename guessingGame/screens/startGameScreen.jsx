@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, StyleSheet } from "react-native";
 import PrimaryButton from "../components/primaryButton";
-import { StyleSheet } from "react-native";
 
 
 const StartGameScreen = () => {
@@ -11,6 +10,7 @@ const StartGameScreen = () => {
                 style={styles.numberInput} 
                 maxLength={2}
                 keyboardType="number-pad"
+                autoCorrect={false} 
             />
             <PrimaryButton>Reset</PrimaryButton>
             <PrimaryButton>Confirm</PrimaryButton>
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         marginTop: 100,
         marginHorizontal: 24,
         padding: 16,
-        backgroundColor: '#72063c',
+        backgroundColor: '#4e0329',
         borderRadius: 8,
         elevation: 4,
     },
