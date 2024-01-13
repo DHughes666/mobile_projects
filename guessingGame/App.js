@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, ImageBackground } from 'react-native';
+import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import StartGameScreen from './screens/startGameScreen';
 import GameScreen from './screens/gameScreen';
+import Colors from './constants/color';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
@@ -21,7 +22,7 @@ export default function App() {
   return (
     <>
       <LinearGradient 
-        colors={['#4e0329', '#ddb52f']} 
+        colors={[Colors.primary700, Colors.accent500]} 
         style={styles.rootScreen}
       >
         <ImageBackground 
@@ -30,7 +31,9 @@ export default function App() {
           style={styles.rootScreen}
           imageStyle={styles.backgroundImage}
         >
-          {screen}
+          <SafeAreaView style={styles.rootScreen}>
+            {screen}
+          </SafeAreaView>
         </ImageBackground>
       </LinearGradient>
       <StatusBar style='auto' />
