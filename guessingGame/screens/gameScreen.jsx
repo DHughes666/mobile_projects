@@ -4,6 +4,7 @@ import Title from "../components/ui/title";
 import NumberContainer from "../components/game/numberContainer";
 import PrimaryButton from "../components/ui/primaryButton";
 import Card from "../components/ui/card";
+import InstructionText from "../components/ui/instructionText";
 
 const generateRandomBetween = (min, max, exclude) => {
     const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -54,18 +55,24 @@ const GameScreen = ({userNumber, onGameOver}) => {
             <Title>Opponent's Guess</Title>
             <NumberContainer>{currentGuess}</NumberContainer>
             <Card>
-                <Text>Higher or lower?</Text>
-                <View>
-                    <PrimaryButton 
-                        pressIt={nextGuessHandler.bind(this, 'lower')}
-                    >
-                        -
-                    </PrimaryButton>
-                    <PrimaryButton 
-                        pressIt={nextGuessHandler.bind(this, 'higher')}
-                    >
-                        +
-                    </PrimaryButton>
+                <InstructionText vari={styles.instructionText}>
+                    Higher or Lower?
+                </InstructionText>
+                <View style={styles.buttonsContainer}>
+                    <View style={styles.buttonContainer}>
+                        <PrimaryButton 
+                            pressIt={nextGuessHandler.bind(this, 'lower')}
+                        >
+                            -
+                        </PrimaryButton>
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <PrimaryButton 
+                            pressIt={nextGuessHandler.bind(this, 'higher')}
+                        >
+                            +
+                        </PrimaryButton>
+                    </View>
                 </View>
             </Card>
             <View><Text>LOG ROUNDS</Text></View>
@@ -78,7 +85,16 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 50,
         paddingHorizontal: 24,
-    }, 
+    },
+    instructionText: {
+        marginBottom: 12,
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+    },
+    buttonContainer: {
+        flex: 1,
+    }
 })
 
 export default GameScreen;

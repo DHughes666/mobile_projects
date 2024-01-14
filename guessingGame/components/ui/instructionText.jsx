@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 import Colors from "../../constants/color";
 
-const InstructionText = ({children}) => {
+const InstructionText = ({children, vari}) => {
     return (
-        <Text style={styles.instruction}>Enter a Number</Text>
+        <Text style={[styles.instruction, vari]}>{children}</Text>
     )
 };
 
