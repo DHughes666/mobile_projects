@@ -5,6 +5,7 @@ import NumberContainer from "../components/game/numberContainer";
 import PrimaryButton from "../components/ui/primaryButton";
 import Card from "../components/ui/card";
 import InstructionText from "../components/ui/instructionText";
+import GuessLogItem from "../components/game/guessLogItme";
 import { Ionicons } from "@expo/vector-icons";
 
 const generateRandomBetween = (min, max, exclude) => {
@@ -28,7 +29,7 @@ const GameScreen = ({userNumber, onGameOver}) => {
 
     useEffect(() => {
         if (currentGuess === userNumber) {
-            onGameOver();
+            onGameOver(guessRounds.length);
         }
     }, [currentGuess, userNumber, onGameOver]);
 
@@ -58,6 +59,8 @@ const GameScreen = ({userNumber, onGameOver}) => {
         setGuessRounds(prevGuessRounds => [newRndNumber, ...prevGuessRounds]);
     }
 
+    const guessRoundsListLength = guessRounds.length;
+
     return (
         <View style={styles.screen}>
             <Title>Opponent's Guess</Title>
@@ -83,15 +86,16 @@ const GameScreen = ({userNumber, onGameOver}) => {
                     </View>
                 </View>
             </Card>
-            <View>
+            <View style={styles.listContainer}>
                 {/* {guessRounds.map(guessRound => 
                     <Text key={guessRound}>{guessRound}</Text>)
                 } */}
                 <FlatList 
                     data={guessRounds}
-                    renderItem={(itemData) => <Text>
-                        {itemData.item}
-                    </Text>}
+                    renderItem={(itemData) => <GuessLogItem 
+                        roundNumber={guessRoundsListLength - itemData.index}
+                        guess={itemData.item}
+                    />}
                     keyExtractor={(item) => item}
                 />
             </View>
@@ -113,7 +117,11 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flex: 1,
-    }
+    },
+    listContainer: {
+        flex: 1,
+        padding: 16
+    },
 })
 
 export default GameScreen;
