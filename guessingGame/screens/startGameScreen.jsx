@@ -35,7 +35,7 @@ const StartGameScreen = ({onConfirmNumber}) => {
 
     return (
         <View style={styles.rootContainer}>
-        <Title>Guiess My Number</Title>
+        <Title>Guess My Number</Title>
             <Card>
                 <InstructionText>Enter a Number</InstructionText>
                 <TextInput  
