@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { View, Alert, TextInput, StyleSheet } from "react-native";
+import { View, Alert, TextInput, StyleSheet, Dimensions } from "react-native";
 import PrimaryButton from "../components/ui/primaryButton";
 import Colors from "../constants/color";
 import Title from "../components/ui/title";
@@ -63,10 +63,12 @@ const StartGameScreen = ({onConfirmNumber}) => {
     )
 }
 
+const deviceHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
     rootContainer: {
         flex: 1,
-        marginTop: 100,
+        marginTop: deviceHeight < 380 ? 30 : 100,
         alignItems: 'center',
     },
     numberInput: {
