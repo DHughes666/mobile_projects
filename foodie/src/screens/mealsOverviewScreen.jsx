@@ -12,11 +12,17 @@ const MealsOverViewScreen = ({ route }) => {
     })
 
     const renderMealItem = (mealItem) => {
+        const item = mealItem.item;
+        const mealItemsProps = {
+            title: item.title,
+            imageUrl: item.imageUrl,
+            affordability: item.affordability,
+            complexity: item.complexity,
+            duration: item.duration,
+        };
+
         return (
-            <MealItem 
-                title={mealItem.item.title}
-                imageUrl={mealItem.item.imageUrl}
-            />
+            <MealItem {...mealItemsProps}/>
         )
     };
 
