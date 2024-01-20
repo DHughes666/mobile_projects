@@ -4,7 +4,10 @@ import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 const MealItem = ({title, imageUrl, duration, complexity, affordability}) => {
     return (
         <View style={styles.mealItem}>
-            <Pressable>
+            <Pressable 
+                android_ripple={{color: '#ccc'}}
+                style={({pressed}) => (pressed ? styles.buttonPressed : null)}
+            >
                 <View>
                     <Image source={{uri: imageUrl}} style={styles.image}/>
                     <Text style={styles.title}>{title}</Text>
@@ -30,6 +33,9 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         backgroundColor: 'white',
         elevation: 4
+    },
+    buttonPressed: {
+        opacity: 0.5,
     },
     image: {
         width: '100%',
