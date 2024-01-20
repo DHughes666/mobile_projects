@@ -2,6 +2,8 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { MEALS } from "../../data/dummy_data";
 
 import MealCommonDetails from "../components/mealCommonDetails";
+import Subtitle from "../components/mealDetail_comp/subtitle";
+import List from "../components/mealDetail_comp/list";
 
 
 const MealDetailScreen = ({route}) => {
@@ -22,20 +24,19 @@ const MealDetailScreen = ({route}) => {
                 affordability={affordability}
                 textStyle={styles.detailText}
             />
-            <View style={styles.subtitleContainer}>
-                <Text style={styles.subtitle}>Ingredients</Text>
+            <View style={styles.listOuterContainer}>
+                <View style={styles.listContainer}>
+                    <Subtitle>Ingredients</Subtitle>
+                    <List items={ingredients}/>
+                    <Subtitle>Steps</Subtitle>
+                    <List items={steps} />
+                </View>
             </View>
-            {ingredients.map(ingredient => 
-                <Text key={ingredient}>{ingredient}</Text>)}
-            <Text style={styles.subtitle}>Steps</Text>
-            {steps.map(step => 
-                <Text key={step}>{step}</Text>)}
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-    rootContainer: {},
     image: {
         width: '100%',
         height: 350,
@@ -46,22 +47,15 @@ const styles = StyleSheet.create({
         fontSize: 24,
         margin: 8
     },
-    subtitleContainer: {
-        borderBottomColor: '#574040',
-        borderBottomWidth: 2,
-        padding: 6,
-        marginHorizontal: 24,
-        marginVertical: 4
-    },
-    subtitle: {
-        color: '#240c0c',
-        fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
     detailText: {
         color: 'gray',
         fontStyle: 'bold',
+    },
+    listOuterContainer: {
+        alignItems: 'center',
+    },
+    listContainer: {
+        width: '80%',
     }
 });
 
