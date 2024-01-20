@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 
-const MealDetailsScreen = () => {
+const MealDetailScreen = () => {
     return (
         <View>
             <Text>Here are the details</Text>
@@ -8,4 +8,4 @@ const MealDetailsScreen = () => {
     )
 };
 
-export default MealDetailsScreen;
+export default MealDetailScreen;

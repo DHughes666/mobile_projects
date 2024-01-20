@@ -12,7 +12,7 @@ const MealsOverViewScreen = ({ route, navigation }) => {
     })
 
     const pressHandler = () => {
-        navigation.navigate('Meals Details');
+        navigation.navigate('Meal Detail');
     };
 
     useLayoutEffect(() => {
@@ -28,6 +28,7 @@ const MealsOverViewScreen = ({ route, navigation }) => {
     const renderMealItem = (mealItem) => {
         const item = mealItem.item;
         const mealItemsProps = {
+            id: item.id,
             title: item.title,
             imageUrl: item.imageUrl,
             affordability: item.affordability,
@@ -36,7 +37,7 @@ const MealsOverViewScreen = ({ route, navigation }) => {
         };
 
         return (
-            <MealItem pressNow={pressHandler} {...mealItemsProps}/>
+            <MealItem {...mealItemsProps}/>
         )
     };
 
