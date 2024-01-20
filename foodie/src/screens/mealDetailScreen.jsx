@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
 import { MEALS } from "../../data/dummy_data";
 
 import MealCommonDetails from "../components/mealCommonDetails";
@@ -15,7 +15,7 @@ const MealDetailScreen = ({route}) => {
         affordability, ingredients, steps} = selectedMeal
 
     return (
-        <View style={styles.rootContainer}>
+        <ScrollView style={styles.rootContainer}>
             <Image source={{uri: imageUrl}} style={styles.image}/>
             <Text style={styles.title}>{title}</Text>
             <MealCommonDetails 
@@ -32,11 +32,14 @@ const MealDetailScreen = ({route}) => {
                     <List items={steps} />
                 </View>
             </View>
-        </View>
+        </ScrollView>
     )
 };
 
 const styles = StyleSheet.create({
+    rootContainer: {
+        marginBottom: 32
+    },
     image: {
         width: '100%',
         height: 350,
