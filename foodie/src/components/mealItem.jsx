@@ -1,12 +1,15 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 
 
-const MealItem = ({title, imageUrl, duration, complexity, affordability}) => {
+const MealItem = (props) => {
+    const {title, imageUrl, duration, 
+        complexity, affordability, pressNow} = props
     return (
         <View style={styles.mealItem}>
             <Pressable 
                 android_ripple={{color: '#ccc'}}
                 style={({pressed}) => (pressed ? styles.buttonPressed : null)}
+                onPress={pressNow}
             >
                 <View>
                     <Image source={{uri: imageUrl}} style={styles.image}/>

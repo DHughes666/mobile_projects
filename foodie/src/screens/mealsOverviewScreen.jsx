@@ -11,6 +11,10 @@ const MealsOverViewScreen = ({ route, navigation }) => {
         return mealItem.categoryIds.indexOf(catId) >= 0;
     })
 
+    const pressHandler = () => {
+        navigation.navigate('Meals Details');
+    };
+
     useLayoutEffect(() => {
         const categoryTitle = CATEGORIES.find((category) => 
         category.id === catId).title;
@@ -32,7 +36,7 @@ const MealsOverViewScreen = ({ route, navigation }) => {
         };
 
         return (
-            <MealItem {...mealItemsProps}/>
+            <MealItem pressNow={pressHandler} {...mealItemsProps}/>
         )
     };
 
