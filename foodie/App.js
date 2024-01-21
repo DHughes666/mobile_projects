@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import CategoriesScreen from './src/screens/categoriesScreen';
 import MealsOverViewScreen from './src/screens/mealsOverviewScreen';
 import MealDetailScreen from './src/screens/mealDetailScreen';
-import Meal from './models/meal';
 
 const Stack = createNativeStackNavigator();
 

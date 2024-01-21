@@ -1,18 +1,36 @@
+import { useLayoutEffect } from "react";
 import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
 import { MEALS } from "../../data/dummy_data";
+import IconButton from "../components/iconButton";
 
 import MealCommonDetails from "../components/mealCommonDetails";
 import Subtitle from "../components/mealDetail_comp/subtitle";
 import List from "../components/mealDetail_comp/list";
 
 
-const MealDetailScreen = ({route}) => {
+const MealDetailScreen = ({route, navigation}) => {
     
     const mealId = route.params.mealId;
 
     const selectedMeal = MEALS.find((meal) => meal.id === mealId);
     const {imageUrl, duration, complexity, title,
         affordability, ingredients, steps} = selectedMeal
+
+    const headerButtonPressedHandler = () => {
+        console.log('Push it to the limit');
+    };
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => {
+                return <IconButton 
+                    pressit={headerButtonPressedHandler}
+                    color='white'
+                    icon='heart'
+                />;
+            }
+        })
+    }, [navigation, headerButtonPressedHandler]);
 
     return (
         <ScrollView style={styles.rootContainer}>
@@ -52,7 +70,7 @@ const styles = StyleSheet.create({
     },
     detailText: {
         color: 'gray',
-        fontStyle: 'bold',
+        fontWeight: 'bold',
     },
     listOuterContainer: {
         alignItems: 'center',
