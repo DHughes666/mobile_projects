@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useContext } from "react";
 import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
 import { MEALS } from "../../data/dummy_data";
 import IconButton from "../components/iconButton";
@@ -6,9 +6,11 @@ import IconButton from "../components/iconButton";
 import MealCommonDetails from "../components/mealCommonDetails";
 import Subtitle from "../components/mealDetail_comp/subtitle";
 import List from "../components/mealDetail_comp/list";
+import { FavouritesContext } from "../../store/context/favourite_context";
 
 
 const MealDetailScreen = ({route, navigation}) => {
+    const favouriteMealsContext = useContext(FavouritesContext)
     
     const mealId = route.params.mealId;
 
@@ -16,21 +18,27 @@ const MealDetailScreen = ({route, navigation}) => {
     const {imageUrl, duration, complexity, title,
         affordability, ingredients, steps} = selectedMeal
 
-    const headerButtonPressedHandler = () => {
-        console.log('Push it to the limit');
+    const mealsFavourite = favouriteMealsContext.ids.includes(mealId)
+
+    const changeFavouriteStatusHandler = () => {
+        if(mealsFavourite){
+            favouriteMealsContext.removeFavourite(mealId);
+        } else {
+            favouriteMealsContext.addFavourite(mealId);
+        }
     };
 
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => {
                 return <IconButton 
-                    pressit={headerButtonPressedHandler}
+                    pressit={changeFavouriteStatusHandler}
                     color='white'
-                    icon='heart'
+                    icon={mealsFavourite ? 'heart' : 'heart-outline'}
                 />;
             }
         })
-    }, [navigation, headerButtonPressedHandler]);
+    }, [navigation, changeFavouriteStatusHandler]);
 
     return (
         <ScrollView style={styles.rootContainer}>
