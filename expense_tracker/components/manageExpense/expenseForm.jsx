@@ -4,7 +4,9 @@ import { View, StyleSheet, Text } from "react-native"
 import InputComp from "./input";
 import Button from "../UI/buttonsComp";
 
-const ExpenseForm = ({confirmHandler, cancelHandler, isEditing}) => {
+const ExpenseForm = ({
+    cancelHandler, isEditing, onSubmit
+}) => {
     const [inputValues, setinputValues] = useState({
         amount: '',
         date: '',
@@ -20,7 +22,15 @@ const ExpenseForm = ({confirmHandler, cancelHandler, isEditing}) => {
         });
     }
 
-    const submitHandler = () => {}
+    const submitHandler = () => {
+        const expenseData = {
+            amount: +inputValues.amount, // the plus value converts the data to a number
+            date: new Date(inputValues.date),
+            description: inputValues.description
+        }
+
+        onSubmit(expenseData);
+    }
 
     return (
         <View style={styles.form}>
@@ -59,7 +69,7 @@ const ExpenseForm = ({confirmHandler, cancelHandler, isEditing}) => {
                 >
                     Cancel
                 </Button>
-                <Button style={styles.button} pressIt={confirmHandler}>
+                <Button style={styles.button} pressIt={submitHandler}>
                     {isEditing ? 'Update' : 'Add'}
                 </Button>
             </View>

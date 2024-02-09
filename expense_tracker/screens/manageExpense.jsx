@@ -1,25 +1,35 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useContext } from "react";
 import { View, StyleSheet } from "react-native"
 
 import IconButton from "../components/UI/iconButton";
 import { GlobalStyles } from "../constants/styles";
 import { DUMMY_EXPENSES } from "../util/data";
 import ExpenseForm from "../components/manageExpense/expenseForm";
+import { ExpensesContext } from "../store/expenses_context";
 
 const ManageExpenses = ({route, navigation}) => {
+    const {
+        updateExpense, addExpense, deleteExpense, expenses
+    } = useContext(ExpensesContext)
     const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
 
     const deleteExpenseHandler = (id) => {
-        DUMMY_EXPENSES.filter(expense => expense.id !== id)
+        deleteExpense(editedExpenseId)
         navigation.goBack();
     }
 
-    const cancelHandler = () => {
+    const confirmHandler = (expenseData) => {
+        if (isEditing) {
+            updateExpense(editedExpenseId, expenseData);
+        } else {
+            addExpense(expenseData)
+        }
+
         navigation.goBack();
     }
  
-    const confirmHandler = () => {
+    const cancelHandler = () => {
         navigation.goBack();
     };
 
@@ -32,7 +42,7 @@ const ManageExpenses = ({route, navigation}) => {
     return(
         <View style={styles.container}>
             <ExpenseForm 
-                confirmHandler={confirmHandler}
+                onSubmit={confirmHandler}
                 cancelHandler={cancelHandler}
                 isEditing={isEditing}
             />
