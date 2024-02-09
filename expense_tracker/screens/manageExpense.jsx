@@ -5,6 +5,7 @@ import IconButton from "../components/UI/iconButton";
 import { GlobalStyles } from "../constants/styles";
 import Button from "../components/UI/buttonsComp";
 import { DUMMY_EXPENSES } from "../util/data";
+import ExpenseForm from "../components/manageExpense/expenseForm";
 
 const ManageExpenses = ({route, navigation}) => {
     const editedExpenseId = route.params?.expenseId;
@@ -31,6 +32,7 @@ const ManageExpenses = ({route, navigation}) => {
 
     return(
         <View style={styles.container}>
+            <ExpenseForm />
             <View style={styles.buttons}>
                 <Button 
                     style={styles.button} 
