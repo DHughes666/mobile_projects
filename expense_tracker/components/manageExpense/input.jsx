@@ -6,6 +6,10 @@ const InputComp = ({label, textInputConfig}) => {
 
     let inputStyles = [styles.input]
 
+    if (textInputConfig && textInputConfig.multiline) {
+        inputStyles.push(styles.inputMultiline)
+    }
+
     return (
         <View style={styles.rootContainer}>
             <Text style={inputStyles}>{label}</Text>
