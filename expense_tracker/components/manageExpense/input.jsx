@@ -12,7 +12,7 @@ const InputComp = ({label, textInputConfig}) => {
 
     return (
         <View style={styles.rootContainer}>
-            <Text style={inputStyles}>{label}</Text>
+            <Text style={styles.label}>{label}</Text>
             <TextInput style={inputStyles} {...textInputConfig}/>
         </View>
     )
