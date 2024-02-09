@@ -4,16 +4,24 @@ import { View, StyleSheet } from "react-native"
 import IconButton from "../components/UI/iconButton";
 import { GlobalStyles } from "../constants/styles";
 import Button from "../components/UI/buttonsComp";
+import { DUMMY_EXPENSES } from "../util/data";
 
 const ManageExpenses = ({route, navigation}) => {
     const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
 
-    const deleteExpenseHandler = () => {}
+    const deleteExpenseHandler = (id) => {
+        DUMMY_EXPENSES.filter(expense => expense.id !== id)
+        navigation.goBack();
+    }
 
-    const cancelHandler = () => {}
-
-    const confirmHandler = () => {};
+    const cancelHandler = () => {
+        navigation.goBack();
+    }
+ 
+    const confirmHandler = () => {
+        navigation.goBack();
+    };
 
     useLayoutEffect(() => {
         navigation.setOptions({
