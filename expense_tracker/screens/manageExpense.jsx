@@ -9,7 +9,7 @@ const ManageExpenses = ({route, navigation}) => {
         navigation.setOptions({
             title: isEditing ? 'Edit Expense' : 'Add Expense'
         });
-    }, []);
+    }, [navigation, isEditing]);
 
     return(
         <Text>Manage Expenses</Text>
