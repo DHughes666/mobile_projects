@@ -8,26 +8,35 @@ import { getFormattedDate } from "../../util/date";
 const ExpenseForm = ({
     cancelHandler, isEditing, onSubmit, defaultValues
 }) => {
-    const [inputValues, setinputValues] = useState({
-        amount: defaultValues ? defaultValues.amount.toString() : '',
-        date: defaultValues ? getFormattedDate(defaultValues.date) : '',
-        description: defaultValues ? defaultValues.description.toString() : '',
+    const [inputs, setInputs] = useState({
+        amount: {
+            value: defaultValues ? defaultValues.amount.toString() : '',
+            isValid: true,
+        },
+        date: {
+            value: defaultValues ? getFormattedDate(defaultValues.date) : '',
+            isValid: true,
+        },
+        description: {
+            value: defaultValues ? defaultValues.description.toString() : '',
+            isValid: true,
+        }
     });
 
     const inputChangeHandler = (inputIdentifier, enteredValue) => {
-        setinputValues((currentInputValues) => {
+        setInputs((currentInputs) => {
             return {
-                ...currentInputValues,
-                [inputIdentifier]: enteredValue
+                ...currentInputs,
+                [inputIdentifier]: {value: enteredValue, isValid: true}
             }
         });
     }
 
     const submitHandler = () => {
         const expenseData = {
-            amount: +inputValues.amount, // the plus value converts the data to a number
-            date: new Date(inputValues.date),
-            description: inputValues.description
+            amount: +inputs.amount.value, // the plus value converts the data to a number
+            date: new Date(inputs.date.value),
+            description: inputs.description.value
         }
 
         const amountIsValid = (
@@ -36,13 +45,26 @@ const ExpenseForm = ({
         const descriptionIsValid = expenseData.description.trim().length > 0;
 
         if (!amountIsValid || !dateIsValid || !descriptionIsValid) {
-            Alert.alert('Invalid input', 'Please check your input values')
+            // Alert.alert('Invalid input', 'Please check your input values')
+            setInputs((currInputs) => {
+                return {
+                    amount: {
+                        value: currInputs.amount.value, isValid: amountIsValid},
+                    date: {value: currInputs.date.value, isValid: dateIsValid},
+                    description: {
+                        value: currInputs.description.value, isValid: descriptionIsValid},
+                }
+            });
             return;
         }
 
         onSubmit(expenseData);
-
     }
+
+    const formIsValid = 
+        !inputs.amount.isValid ||
+        !inputs.date.isValid ||
+        !inputs.description.isValid;
 
     return (
         <View style={styles.form}>
@@ -54,7 +76,7 @@ const ExpenseForm = ({
                     textInputConfig={{
                         keyboardType: 'decimal-pad',
                         onChangeText: inputChangeHandler.bind(this, 'amount'),
-                        value: inputValues.amount,
+                        value: inputs.amount.value,
                 }}/>
                 <InputComp 
                     label="Date" 
@@ -64,16 +86,21 @@ const ExpenseForm = ({
                         keyboardType: 'number-pad',
                         maxLength: 10,
                         onChangeText: inputChangeHandler.bind(this, 'date'),
-                        value: inputValues.date,
+                        value: inputs.date.value,
                 }}/>
             </View>
             <InputComp label="Description" textInputConfig={{
                 multiline: true,
                 onChangeText: inputChangeHandler.bind(this, 'description'),
-                value: inputValues.description
+                value: inputs.description.value
                 // autoCorrect: false,
                 // autoCapitalize: 'sentences',
             }}/>
+            {formIsValid && 
+                <Text>
+                    Invalid input values - please check your entered data
+                </Text>
+            }
             <View style={styles.buttons}>
                 <Button 
                     style={styles.button} 
