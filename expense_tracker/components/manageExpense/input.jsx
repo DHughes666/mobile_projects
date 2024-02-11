@@ -2,7 +2,7 @@ import { View, Text, TextInput, StyleSheet } from "react-native"
 
 import { GlobalStyles } from "../../constants/styles";
 
-const InputComp = ({label, style, textInputConfig}) => {
+const InputComp = ({label, style, invalid, textInputConfig}) => {
 
     let inputStyles = [styles.input]
 
@@ -12,8 +12,10 @@ const InputComp = ({label, style, textInputConfig}) => {
 
     return (
         <View style={[styles.rootContainer, style]}>
-            <Text style={styles.label}>{label}</Text>
-            <TextInput style={inputStyles} {...textInputConfig}/>
+            <Text style={[styles.label, invalid && styles.invalidLabel]}>
+            {label}
+            </Text>
+            <TextInput style={[inputStyles, invalid && styles.invalidInput]} {...textInputConfig}/>
         </View>
     )
 };
@@ -40,7 +42,12 @@ const styles = StyleSheet.create({
         minHeight: 100,
         textAlignVertical: 'top',
     },
-    
+    invalidLabel: {
+        color: GlobalStyles.colors.error500
+    },
+    invalidInput: {
+        backgroundColor: GlobalStyles.colors.error50,
+    },
 });
 
 export default InputComp;

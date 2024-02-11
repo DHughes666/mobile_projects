@@ -4,6 +4,7 @@ import { View, StyleSheet, Text, Alert } from "react-native"
 import InputComp from "./input";
 import Button from "../UI/buttonsComp";
 import { getFormattedDate } from "../../util/date";
+import { GlobalStyles } from "../../constants/styles";
 
 const ExpenseForm = ({
     cancelHandler, isEditing, onSubmit, defaultValues
@@ -73,6 +74,7 @@ const ExpenseForm = ({
                 <InputComp 
                     label="Amount" 
                     style={styles.rowInput}
+                    invalid={!inputs.amount.isValid}  
                     textInputConfig={{
                         keyboardType: 'decimal-pad',
                         onChangeText: inputChangeHandler.bind(this, 'amount'),
@@ -81,6 +83,7 @@ const ExpenseForm = ({
                 <InputComp 
                     label="Date" 
                     style={styles.rowInput}
+                    invalid={!inputs.date.isValid}
                     textInputConfig={{
                         placeholder: 'YYYY-MM-DD',
                         keyboardType: 'number-pad',
@@ -89,15 +92,18 @@ const ExpenseForm = ({
                         value: inputs.date.value,
                 }}/>
             </View>
-            <InputComp label="Description" textInputConfig={{
-                multiline: true,
-                onChangeText: inputChangeHandler.bind(this, 'description'),
-                value: inputs.description.value
-                // autoCorrect: false,
-                // autoCapitalize: 'sentences',
+            <InputComp 
+                label="Description"
+                invalid={!inputs.description.isValid}
+                textInputConfig={{
+                    multiline: true,
+                    onChangeText: inputChangeHandler.bind(this, 'description'),
+                    value: inputs.description.value
+                    // autoCorrect: false,
+                    // autoCapitalize: 'sentences',
             }}/>
             {formIsValid && 
-                <Text>
+                <Text style={styles.errorText}>
                     Invalid input values - please check your entered data
                 </Text>
             }
@@ -144,6 +150,13 @@ const styles = StyleSheet.create({
         minWidth: 120,
         marginHorizontal: 8
     },
+    errorText: {
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: GlobalStyles.colors.error50,
+        margin: 8
+    },
+    
 });
 
 
