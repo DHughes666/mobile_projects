@@ -5,13 +5,13 @@ import InputComp from "./input";
 import Button from "../UI/buttonsComp";
 
 const ExpenseForm = ({
-    cancelHandler, isEditing, onSubmit
+    cancelHandler, isEditing, onSubmit, defaultValues
 }) => {
     const [inputValues, setinputValues] = useState({
-        amount: '',
-        date: '',
-        description: ''
-    })
+        amount: defaultValues ? defaultValues.amount.toString() : '',
+        date: defaultValues ? defaultValues.date.toString() : '',
+        description: defaultValues ? defaultValues.description.toString() : '',
+    });
 
     const inputChangeHandler = (inputIdentifier, enteredValue) => {
         setinputValues((currentInputValues) => {
