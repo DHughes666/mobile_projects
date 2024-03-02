@@ -1,36 +1,9 @@
 import { createContext, useReducer } from "react";
 
-const DUMMY_EXPENSES = [
-    {
-        id: 'e1',
-        description: 'A new hard drive',
-        amount: 59.99,
-        date: new Date('2024-02-08')
-    },
-    {
-        id: 'e2',
-        description: 'Chelsea boots',
-        amount: 29.99,
-        date: new Date('2024-02-10')
-    },
-    {
-        id: 'e3',
-        description: 'Cloud storage subscription',
-        amount: 309.99,
-        date: new Date('2023-01-08')
-    },
-    {
-        id: 'e4',
-        description: 'Englightenment Now',
-        amount: 25.13,
-        date: new Date('2022-10-01')
-    }
-   
-]
-
 export const ExpensesContext = createContext({
     expenses: [],
     addExpense: ({description, amount, date}) => {},
+    setExpenses: (expenses) => {},
     deleteExpense: (id) => {},
     updateExpense: (id, {description, amount, date}) => {},
 });
@@ -40,6 +13,9 @@ const expensesReducer = (state, action) => {
         case 'ADD':
             const id = new Date().toString() + Math.random().toString();
             return [{...action.payload, id: id}, ...state]
+
+        case 'SET':
+            return action.payload;
 
         case 'UPDATE':
             const itemToUpdateIndex = state.findIndex(
@@ -60,10 +36,14 @@ const expensesReducer = (state, action) => {
 
 
 const ExpensesContextProvider = ({children}) => {
-    const [expensesState, dispatch] = useReducer(expensesReducer, DUMMY_EXPENSES)
+    const [expensesState, dispatch] = useReducer(expensesReducer, [])
 
     const addExpense = (expenseData) => {
         dispatch({type: 'ADD', payload: expenseData});
+    }
+
+    const setExpenses = (expenses) => {
+        dispatch({type: 'SET', payload: expenses});
     }
 
     const deleteExpense = (id) => {
@@ -76,6 +56,7 @@ const ExpensesContextProvider = ({children}) => {
 
     const values = {
         expenses: expensesState,
+        setExpenses: setExpenses,
         addExpense: addExpense,
         deleteExpense: deleteExpense,
         updateExpense: updateExpense
