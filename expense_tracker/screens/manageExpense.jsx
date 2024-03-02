@@ -3,9 +3,9 @@ import { View, StyleSheet } from "react-native"
 
 import IconButton from "../components/UI/iconButton";
 import { GlobalStyles } from "../constants/styles";
-import { DUMMY_EXPENSES } from "../util/data";
 import ExpenseForm from "../components/manageExpense/expenseForm";
 import { ExpensesContext } from "../store/expenses_context";
+import { storeExpense } from "../util/http";
 
 const ManageExpenses = ({route, navigation}) => {
     const {
@@ -23,6 +23,7 @@ const ManageExpenses = ({route, navigation}) => {
         if (isEditing) {
             updateExpense(editedExpenseId, expenseData);
         } else {
+            storeExpense(expenseData);
             addExpense(expenseData)
         }
 
