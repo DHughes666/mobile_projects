@@ -1,4 +1,4 @@
-import { useLayoutEffect, useContext } from "react";
+import { useLayoutEffect, useState, useContext } from "react";
 import { View, StyleSheet } from "react-native"
 
 import IconButton from "../components/UI/iconButton";
@@ -6,6 +6,7 @@ import { GlobalStyles } from "../constants/styles";
 import ExpenseForm from "../components/manageExpense/expenseForm";
 import { ExpensesContext } from "../store/expenses_context";
 import { storeExpense, upExpense, delExpense } from "../util/http";
+import LoadingOverlay from "../components/UI/loadingOverlay";
 
 const ManageExpenses = ({route, navigation}) => {
     const {
@@ -13,6 +14,7 @@ const ManageExpenses = ({route, navigation}) => {
     } = useContext(ExpensesContext)
     const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
+    const [isStoring, setIsStoring] = useState(false);
 
     const deleteExpenseHandler = async () => {
         await delExpense(editedExpenseId);
