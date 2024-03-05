@@ -14,15 +14,17 @@ const ManageExpenses = ({route, navigation}) => {
     } = useContext(ExpensesContext)
     const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
-    const [isStoring, setIsStoring] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const deleteExpenseHandler = async () => {
+        setIsSubmitting(true);
         await delExpense(editedExpenseId);
         deleteExpense(editedExpenseId)
         navigation.goBack();
     }
 
     const confirmHandler = async (expenseData) => {
+        setIsSubmitting(true);
         if (isEditing) {
             updateExpense(editedExpenseId, expenseData);
             await upExpense(editedExpenseId, expenseData)
@@ -46,6 +48,10 @@ const ManageExpenses = ({route, navigation}) => {
             title: isEditing ? 'Edit Expense' : 'Add Expense'
         });
     }, [navigation, isEditing]);
+
+    if (isSubmitting) {
+        return <LoadingOverlay />;
+    }
 
     return(
         <View style={styles.container}>
