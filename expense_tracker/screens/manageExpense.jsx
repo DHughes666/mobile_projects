@@ -7,6 +7,7 @@ import ExpenseForm from "../components/manageExpense/expenseForm";
 import { ExpensesContext } from "../store/expenses_context";
 import { storeExpense, upExpense, delExpense } from "../util/http";
 import LoadingOverlay from "../components/UI/loadingOverlay";
+import ErrorOverlay from "../components/UI/errorOverlay";
 
 const ManageExpenses = ({route, navigation}) => {
     const {
@@ -15,25 +16,38 @@ const ManageExpenses = ({route, navigation}) => {
     const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState();
 
     const deleteExpenseHandler = async () => {
         setIsSubmitting(true);
-        await delExpense(editedExpenseId);
-        deleteExpense(editedExpenseId)
-        navigation.goBack();
+        try {
+            await delExpense(editedExpenseId);
+            deleteExpense(editedExpenseId)
+            navigation.goBack();
+        } catch (error) {
+            setError('Could not delete expense - please try again later')
+            setIsSubmitting(false);
+        }
+        
     }
 
     const confirmHandler = async (expenseData) => {
         setIsSubmitting(true);
-        if (isEditing) {
-            updateExpense(editedExpenseId, expenseData);
-            await upExpense(editedExpenseId, expenseData)
-        } else {
-            const id = await storeExpense(expenseData);
-            addExpense({...expenseData, id: id})
+        try {
+            if (isEditing) {
+                updateExpense(editedExpenseId, expenseData);
+                await upExpense(editedExpenseId, expenseData)
+            } else {
+                const id = await storeExpense(expenseData);
+                addExpense({...expenseData, id: id})
+            }
+            navigation.goBack();
+        } catch (error) {
+            setError('Could not save data - please try again later')
+            setIsSubmitting(false);
         }
 
-        navigation.goBack();
+        
     }
  
     const cancelHandler = () => {
@@ -49,8 +63,16 @@ const ManageExpenses = ({route, navigation}) => {
         });
     }, [navigation, isEditing]);
 
+    const errorHandler = () => {
+        setError(null)
+    };
+
     if (isSubmitting) {
         return <LoadingOverlay />;
+    }
+
+    if (error && !isSubmitting) {
+        return <ErrorOverlay message={error} onConfirm={errorHandler} />;
     }
 
     return(
