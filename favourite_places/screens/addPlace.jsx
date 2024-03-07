@@ -1,5 +1,7 @@
+import PlaceForm from "./placeForm";
 
-
-const AddPlace = () => {};
+const AddPlace = () => {
+    return <PlaceForm />;
+};
 
 export default AddPlace;
