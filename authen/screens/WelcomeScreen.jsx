@@ -15,7 +15,7 @@ const WelcomeScreen = () => {
     ).then((response) =>{
       setFetchedMessage(response.data);
     });
-  }, []);
+  }, [token]);
 
   return (
     <View style={styles.rootContainer}>
