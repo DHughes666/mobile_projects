@@ -6,13 +6,14 @@ import { Colors } from "../constants/colors"
 const OutlineButton = ({children, pressit, icon}) => {
     return (
         <Pressable 
+            onPress={pressit}
             style={({pressed}) => [styles.button, pressed && styles.pressed]}>
+            
             <Ionicons 
                 style={styles.icon}
                 name={icon}
                 size={18}
                 color={Colors.primary500}
-                onPress={pressit}
             />
             <Text style={styles.text}>{children}</Text>
         </Pressable>
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: Colors.primary500
+        borderColor: Colors.primary100
     },
     pressed: {
         opacity: 0.7
